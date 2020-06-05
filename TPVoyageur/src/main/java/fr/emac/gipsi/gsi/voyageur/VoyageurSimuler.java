@@ -13,6 +13,9 @@ public class VoyageurSimuler extends AbstractVoyageur {
      *
      */
     public VoyageurSimuler() {
+    	if ((getDirection()=="N")&&(getPosTete().getX()!=0))
+    		setPosTete(new Position(posTete.getX()-1,posTete.getY()));
+    		setPosBody(getPosBody().getX()-1,getPosBody().getY());
         // TODO Auto-generated constructor stub
     }
 
