@@ -1,11 +1,11 @@
 package fr.emac.gipsi.gsi.animation;
 
-public class AnimationLigne extends AbstractAnimation {
+public class AnimationDiag {
 	 
 		/**
 		 * 
 		 */
-		public AnimationLigne() {
+		public AnimationDiag() {
 			
 		}
 
@@ -17,7 +17,9 @@ public class AnimationLigne extends AbstractAnimation {
 				System.out.println("startSend");
 				this.showScreen(ecranInt);
 				for(int col=0;col<ecranInt.getColMax()+1;col++){
+					col=col+1;
 					ecranInt.updateColorByXY(lig, col, ecranFin.getColorByXY(lig,col));
+					col=col-1;
 				}
 				this.wait(400);
 				
