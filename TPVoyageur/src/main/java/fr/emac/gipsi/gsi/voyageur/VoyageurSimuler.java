@@ -3,6 +3,8 @@
  */
 package fr.emac.gipsi.gsi.voyageur;
 
+import fr.emac.gipsi.gsi.voyage.Position;
+
 /**
  * @author Truptil Sebastien - sebastien.truptil@gmail.com
  *
@@ -13,9 +15,6 @@ public class VoyageurSimuler extends AbstractVoyageur {
      *
      */
     public VoyageurSimuler() {
-    	if ((getDirection()=="N")&&(getPosTete().getX()!=0))
-    		setPosTete(new Position(posTete.getX()-1,posTete.getY()));
-    		setPosBody(getPosBody().getX()-1,getPosBody().getY());
         // TODO Auto-generated constructor stub
     }
 
@@ -24,6 +23,22 @@ public class VoyageurSimuler extends AbstractVoyageur {
      */
     @Override
     protected void forward() {
+    	if (getDirection()=="N") {
+    		setPosTete(new Position(getPosTete().getX() - 1, getPosTete().getY()));
+    		setPosBody(new Position(getPosBody().getX() - 1, getPosBody().getY()));
+    	}	
+    	if (getDirection()=="O") {
+    		setPosTete(new Position(getPosTete().getX(), getPosTete().getY() - 1));
+    		setPosBody(new Position(getPosBody().getX(), getPosBody().getY() - 1));
+    	}
+    	if (getDirection()=="S") {
+    		setPosTete(new Position(getPosTete().getX() + 1, getPosTete().getY()));
+    		setPosBody(new Position(getPosBody().getX() + 1, getPosBody().getY()));
+    	}
+    	if (getDirection()=="E") {
+    		setPosTete(new Position(getPosTete().getX(), getPosTete().getY() + 1));
+    		setPosBody(new Position(getPosBody().getX(), getPosBody().getY() + 1));
+    	}
         // TODO Auto-generated method stub
 
     }
@@ -33,8 +48,24 @@ public class VoyageurSimuler extends AbstractVoyageur {
      */
     @Override
     protected void backward() {
+    	if (getDirection()=="N") {
+    		setPosTete(new Position(getPosTete().getX() + 1, getPosTete().getY()));
+    		setPosBody(new Position(getPosBody().getX() + 1, getPosBody().getY()));
+    	}	
+    	if (getDirection()=="O") {
+    		setPosTete(new Position(getPosTete().getX(), getPosTete().getY() + 1));
+    		setPosBody(new Position(getPosBody().getX(), getPosBody().getY() + 1));
+    	}
+    	if (getDirection()=="S") {
+    		setPosTete(new Position(getPosTete().getX() - 1, getPosTete().getY()));
+    		setPosBody(new Position(getPosBody().getX() - 1, getPosBody().getY()));
+    	}
+    	if (getDirection()=="E") {
+    		setPosTete(new Position(getPosTete().getX(), getPosTete().getY() - 1));
+    		setPosBody(new Position(getPosBody().getX(), getPosBody().getY() - 1));
+    	}
+    		
         // TODO Auto-generated method stub
-
     }
 
     /* (non-Javadoc)
@@ -42,6 +73,22 @@ public class VoyageurSimuler extends AbstractVoyageur {
      */
     @Override
     protected void left() {
+    	if (getDirection()=="N") {
+    		setPosTete(new Position(getPosTete().getX() + 1, getPosTete().getY() - 1));
+    		setDirection("O");
+    	}	
+    	if (getDirection()=="O") {
+    		setPosTete(new Position(getPosTete().getX() + 1, getPosTete().getY() + 1));
+    		setDirection("S");
+    	}
+    	if (getDirection()=="S") {
+    		setPosTete(new Position(getPosTete().getX() - 1, getPosTete().getY() + 1));
+    		setDirection("E");
+    	}
+    	if (getDirection()=="E") {
+    		setPosTete(new Position(getPosTete().getX() - 1, getPosTete().getY() - 1));
+    		setDirection("N");
+    	}
         // TODO Auto-generated method stub
     }
 
@@ -50,6 +97,22 @@ public class VoyageurSimuler extends AbstractVoyageur {
      */
     @Override
     protected void right() {
+    	if (getDirection()=="N") {
+    		setPosTete(new Position(getPosTete().getX() + 1, getPosTete().getY() + 1));
+    		setDirection("E");
+    	}	
+    	if (getDirection()=="O") {
+    		setPosTete(new Position(getPosTete().getX() - 1, getPosTete().getY() + 1));
+    		setDirection("N");
+    	}
+    	if (getDirection()=="S") {
+    		setPosTete(new Position(getPosTete().getX() - 1, getPosTete().getY() - 1));
+    		setDirection("O");
+    	}
+    	if (getDirection()=="E") {
+    		setPosTete(new Position(getPosTete().getX() + 1, getPosTete().getY() - 1));
+    		setDirection("S");
+    	}
         // TODO Auto-generated method stub
     }
 }
