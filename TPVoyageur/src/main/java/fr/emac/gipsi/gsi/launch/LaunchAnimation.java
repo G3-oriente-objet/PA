@@ -5,6 +5,7 @@ package fr.emac.gipsi.gsi.launch;
 
 import fr.emac.gipsi.gsi.animation.AbstractAnimation;
 import fr.emac.gipsi.gsi.animation.AnimationByColumn;
+import fr.emac.gipsi.gsi.animation.AnimationDiag;
 import fr.emac.gipsi.gsi.animation.AnimationFlash;
 import fr.emac.gipsi.gsi.animation.AnimationLigne;
 import fr.emac.gipsi.gsi.ecran.ListScreen;
@@ -28,7 +29,7 @@ public class LaunchAnimation {
 
 		aa.wait(1000);
 		
-		AbstractAnimation ab = new AnimationLigne();
+		AbstractAnimation ab = new AnimationDiag();
 		ab.setEcranDeb(ListScreen.Elec());
 		ab.setEcranFin(ListScreen.Eau());
 		
