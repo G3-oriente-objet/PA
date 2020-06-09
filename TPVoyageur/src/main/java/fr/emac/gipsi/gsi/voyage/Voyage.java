@@ -12,6 +12,8 @@ import java.util.ArrayList;
  *
  */
 public class Voyage extends AbstractVoyage {
+	
+	int M, N,i;
 
     /**
      * @param listPlanete
@@ -62,9 +64,25 @@ public class Voyage extends AbstractVoyage {
     /* (non-Javadoc)
      * @see fr.emac.gipsi.gsi.voyage.AbstractVoyage#pilotageSimuler()
      */
+    public int calculDist(Position R, Position P) {
+    	return ((R.getX()-P.getX())^2 + (R.getY()-P.getY())^2)^(1/2);
+    }
+    
+    public Planete min(ArrayList<Planete> listPlanete, Position P) {
+    	 M = calculDist(listPlanete.get(0).getPos(), P);
+    	 N = 0;
+    	for (i=1;i<listPlanete.size();i++) {
+    		if (calculDist(listPlanete.get(i).getPos(), P)<M) {
+    			M = calculDist(listPlanete.get(i).getPos(), P);
+    			N = i;
+    		}
+    	}
+    	return listPlanete.get(N);
+    }
     @Override
     public void lancementSimuler() {
         // TODO Auto-generated method stub
         afficheEcran();
+        
     }
 }
