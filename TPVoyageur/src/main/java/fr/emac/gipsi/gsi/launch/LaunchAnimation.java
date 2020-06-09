@@ -20,16 +20,16 @@ public class LaunchAnimation {
 	public static void main(String[] args) {
 		
 		AbstractAnimation aa = new AnimationFlash();
-		aa.setEcranDeb(ListScreen.first());
-		aa.setEcranFin(ListScreen.second());
+		aa.setEcranDeb(ListScreen.Eau());
+		aa.setEcranFin(ListScreen.Elec());
 		
 		aa.runAnimation();
 
 		aa.wait(1000);
 		
-		AbstractAnimation ab = new AnimationFlash();
-		ab.setEcranDeb(ListScreen.second());
-		ab.setEcranFin(ListScreen.first());
+		AbstractAnimation ab = new AnimationByColumn();
+		ab.setEcranDeb(ListScreen.Elec());
+		ab.setEcranFin(ListScreen.Eau());
 		
 		ab.runAnimation();
 
