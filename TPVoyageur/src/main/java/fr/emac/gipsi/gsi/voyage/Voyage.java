@@ -71,11 +71,14 @@ public class Voyage extends AbstractVoyage {
     
     public Planete min(ArrayList<Planete> listPlanete, Position P) {
     	 M = calculDist(listPlanete.get(0).getPos(), P);
+    	 if (M==0) {
+    		 M = calculDist(listPlanete.get(1).getPos(), P); 
+    	 }
     	 N = 0;
     	for (i=1;i<listPlanete.size();i++) {
-    		if (calculDist(listPlanete.get(i).getPos(), P)<M) {
+    		if ((calculDist(listPlanete.get(i).getPos(), P)<M)&&(calculDist(listPlanete.get(i).getPos(),P)!=0)) {
     			M = calculDist(listPlanete.get(i).getPos(), P);
-    			N = i;
+        		N = i;
     		}
     	}
     	return listPlanete.get(N);
@@ -181,12 +184,25 @@ public class Voyage extends AbstractVoyage {
     	}
     	afficheEcran();
     }
+    public Planete where(ArrayList<Planete> listPlanete, Position P) {
+    	N=0;
+    	for (i=0;i<listPlanete.size();i++) {
+    		if (calculDist(listPlanete.get(i).getPos(), P) == 0){
+    			N=i;
+    		}
+    	}
+    	return listPlanete.get(N);
+    }
+    
+    
+    
+    
     @Override
     public void lancementSimuler() {
         // TODO Auto-generated method stub
         afficheEcran();
-        getSimulatedvoyageur();
-    	goTo(listPlanete.get(2).getPos());
+    	goTo(min(listPlanete,getSimulatedvoyageur().getPosBody()).getPos());
+    	goTo(min(listPlanete,getSimulatedvoyageur().getPosBody()).getPos());
         
     }
 }
