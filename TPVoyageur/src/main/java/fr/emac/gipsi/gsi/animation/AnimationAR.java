@@ -1,11 +1,11 @@
 package fr.emac.gipsi.gsi.animation;
 
-public class AnimationDirecte extends AbstractAnimation {
+public class AnimationAR extends AbstractAnimation {
 
 	/**
 	 * 
 	 */
-	public AnimationDirecte() {
+	public AnimationAR() {
 		
 	}
 
@@ -15,7 +15,8 @@ public class AnimationDirecte extends AbstractAnimation {
 		showScreen(ecranDeb);
 		wait(500);
 		showScreen(ecranFin);
-
-}
+		wait(1000);
+		showScreen(ecranDeb);
+	}
 
 }

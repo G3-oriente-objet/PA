@@ -71,30 +71,79 @@ public class Voyage extends AbstractVoyage {
     
     public Planete min(ArrayList<Planete> listPlanete, Position P) {
     	 M = calculDist(listPlanete.get(0).getPos(), P);
+    	 if (M==0) {
+    		 M = calculDist(listPlanete.get(1).getPos(), P); 
+    	 }
     	 N = 0;
     	for (i=1;i<listPlanete.size();i++) {
-    		if (calculDist(listPlanete.get(i).getPos(), P)<M) {
+    		if ((calculDist(listPlanete.get(i).getPos(), P)<M)&&(calculDist(listPlanete.get(i).getPos(),P)!=0)) {
     			M = calculDist(listPlanete.get(i).getPos(), P);
-    			N = i;
+        		N = i;
     		}
     	}
     	return listPlanete.get(N);
     }
     public void goTo(Position P) {
+    	if (getSimulatedvoyageur().getPosBody().getY()<P.getY()) {
+    		if (getSimulatedvoyageur().getDirection()=="O") {
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goBackward();
+    			}
+    		}
+    		if (getSimulatedvoyageur().getDirection()=="S") {
+    			getSimulatedvoyageur().turnLeft();
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goForward();
+    			}
+    		}
+    		if (getSimulatedvoyageur().getDirection()=="N") {
+    			getSimulatedvoyageur().turnRight();
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goForward();
+    			}
+    		}
+    		if (getSimulatedvoyageur().getDirection()=="E") {
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goForward();
+    			}
+    		}
+    	}
+    	if (getSimulatedvoyageur().getPosBody().getY()>P.getY()) {
+    		if (getSimulatedvoyageur().getDirection()=="O") {
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goForward();
+    			}
+    		}
+    		if (getSimulatedvoyageur().getDirection()=="S") {
+    			getSimulatedvoyageur().turnRight();
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goForward();
+    			}
+    		}
+    		if (getSimulatedvoyageur().getDirection()=="N") {
+    			getSimulatedvoyageur().turnLeft();
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goForward();
+    			}
+    		}
+    		if (getSimulatedvoyageur().getDirection()=="E") {
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goBackward();
+    			}
+    		}
+    	}
     	if (getSimulatedvoyageur().getPosBody().getX()<P.getX()) {
     		if (getSimulatedvoyageur().getDirection()=="N") {
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goBackward();
     				afficheEcran();
     			}
-    			afficheEcran();
     		}
     		if (getSimulatedvoyageur().getDirection()=="O") {
     			getSimulatedvoyageur().turnLeft();
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goForward();
     			}
-    			afficheEcran();
     		}
     		if (getSimulatedvoyageur().getDirection()=="E") {
     			getSimulatedvoyageur().turnRight();
@@ -107,103 +156,53 @@ public class Voyage extends AbstractVoyage {
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goForward();
     			}
-    			afficheEcran();
     		}
     	}
-    	else if (getSimulatedvoyageur().getPosBody().getX()>P.getX()) {
+    	if (getSimulatedvoyageur().getPosBody().getX()>P.getX()) {
     		if (getSimulatedvoyageur().getDirection()=="N") {
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goForward();
     			}
-    			afficheEcran();
     		}
     		if (getSimulatedvoyageur().getDirection()=="O") {
     			getSimulatedvoyageur().turnRight();
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goForward();
     			}
-    			afficheEcran();
     		}
     		if (getSimulatedvoyageur().getDirection()=="E") {
     			getSimulatedvoyageur().turnLeft();
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goForward();
     			}
-    			afficheEcran();
     		}
     		if (getSimulatedvoyageur().getDirection()=="S") {
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goBackward();
     			}
-    			afficheEcran();
     		}
-    	}
-    	else {
-    	}
-    	if (getSimulatedvoyageur().getPosBody().getY()<P.getY()) {
-    		if (getSimulatedvoyageur().getDirection()=="O") {
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goBackward();
-    			}
-    			afficheEcran();
-    		}
-    		if (getSimulatedvoyageur().getDirection()=="S") {
-    			getSimulatedvoyageur().turnLeft();
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goForward();
-    			}
-    			
-    		}
-    		if (getSimulatedvoyageur().getDirection()=="N") {
-    			getSimulatedvoyageur().turnRight();
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goForward();
-    			}
-    			afficheEcran();
-    		}
-    		if (getSimulatedvoyageur().getDirection()=="E") {
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goForward();
-    			}
-    			afficheEcran();
-    		}
-    	}
-    	else if (getSimulatedvoyageur().getPosBody().getY()>P.getY()) {
-    		if (getSimulatedvoyageur().getDirection()=="O") {
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goForward();
-    			}
-    			afficheEcran();
-    		}
-    		if (getSimulatedvoyageur().getDirection()=="S") {
-    			getSimulatedvoyageur().turnRight();
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goForward();
-    			}
-    			afficheEcran();
-    		}
-    		if (getSimulatedvoyageur().getDirection()=="N") {
-    			getSimulatedvoyageur().turnLeft();
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goForward();
-    			}
-    			afficheEcran();
-    		}
-    		if (getSimulatedvoyageur().getDirection()=="E") {
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goBackward();
-    			}
-    			afficheEcran();
-    		}
-    	}
-    	else {
     	}
     	afficheEcran();
     }
+    public Planete where(ArrayList<Planete> listPlanete, Position P) {
+    	N=0;
+    	for (i=0;i<listPlanete.size();i++) {
+    		if (calculDist(listPlanete.get(i).getPos(), P) == 0){
+    			N=i;
+    		}
+    	}
+    	return listPlanete.get(N);
+    }
+    
+    
+    
+    
     @Override
     public void lancementSimuler() {
         // TODO Auto-generated method stub
         afficheEcran();
+    	goTo(min(listPlanete,getSimulatedvoyageur().getPosBody()).getPos());
+    	goTo(min(listPlanete,getSimulatedvoyageur().getPosBody()).getPos());
         
     }
 }
