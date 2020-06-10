@@ -6,8 +6,10 @@ package fr.emac.gipsi.gsi.launch;
 import fr.emac.gipsi.gsi.animation.AbstractAnimation;
 import fr.emac.gipsi.gsi.animation.AnimationByColumn;
 import fr.emac.gipsi.gsi.animation.AnimationDiag;
+import fr.emac.gipsi.gsi.animation.AnimationDirecte;
 import fr.emac.gipsi.gsi.animation.AnimationFlash;
 import fr.emac.gipsi.gsi.animation.AnimationLigne;
+import fr.emac.gipsi.gsi.animation.AnimationSpirale;
 import fr.emac.gipsi.gsi.ecran.ListScreen;
 
 /**
@@ -21,7 +23,7 @@ public class LaunchAnimation {
 	 */
 	public static void main(String[] args) {
 		
-		AbstractAnimation aa = new AnimationFlash();
+		AbstractAnimation aa = new AnimationSpirale();
 		aa.setEcranDeb(ListScreen.Elec());
 		aa.setEcranFin(ListScreen.Vol1());
 		
@@ -41,9 +43,9 @@ public class LaunchAnimation {
 		ab.setEcranDeb(ListScreen.Vol2());
 		ab.setEcranFin(ListScreen.SolElec());
 		
-		AbstractAnimation ac = new AnimationFlash();
-		ac.setEcranDeb(ListScreen.Psy());
-		ac.setEcranFin(ListScreen.Tenebre());
+		AbstractAnimation ac = new AnimationDirecte();
+		ac.setEcranDeb(ListScreen.Vol1());
+		ac.setEcranFin(ListScreen.Vol1());
 		
 		ac.runAnimation();
 
