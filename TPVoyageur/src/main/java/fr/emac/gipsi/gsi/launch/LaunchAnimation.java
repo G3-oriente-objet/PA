@@ -22,16 +22,24 @@ public class LaunchAnimation {
 	public static void main(String[] args) {
 		
 		AbstractAnimation aa = new AnimationFlash();
-		aa.setEcranDeb(ListScreen.Eau());
-		aa.setEcranFin(ListScreen.Elec());
+		aa.setEcranDeb(ListScreen.Elec());
+		aa.setEcranFin(ListScreen.Vol1());
 		
 		aa.runAnimation();
-
-		aa.wait(1000);
 		
-		AbstractAnimation ab = new AnimationDiag();
-		ab.setEcranDeb(ListScreen.Elec());
-		ab.setEcranFin(ListScreen.Eau());
+		aa.wait(700);
+		
+		AbstractAnimation vol = new AnimationLigne();
+		vol.setEcranDeb(ListScreen.Vol1());
+		vol.setEcranFin(ListScreen.Vol2());
+		
+		vol.runAnimation();
+
+		vol.wait(2000);
+		
+		AbstractAnimation ab = new AnimationFlash();
+		ab.setEcranDeb(ListScreen.Vol2());
+		ab.setEcranFin(ListScreen.SolElec());
 		
 		AbstractAnimation ac = new AnimationFlash();
 		ac.setEcranDeb(ListScreen.Psy());
