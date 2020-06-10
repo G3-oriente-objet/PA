@@ -16,9 +16,9 @@ public class AnimationDiag extends AbstractAnimation {
 			for(int lig=0;lig<ecranInt.getLigMax()+1;lig++){
 				System.out.println("startSend");
 				this.showScreen(ecranInt);
-				for(int col=0;col<ecranInt.getColMax();col++){
-					col=col+1;
+				for(int col=0;col<ecranInt.getColMax()+1;col++){
 					ecranInt.updateColorByXY(lig, col, ecranFin.getColorByXY(lig,col));
+					col=col+1;
 				}
 				this.wait(100);
 			}
@@ -26,9 +26,9 @@ public class AnimationDiag extends AbstractAnimation {
 			for(int lig1=ecranInt.getLigMax();lig1>=0;lig1--){
 				System.out.println("startSend");
 				this.showScreen(ecranInt);
-				for(int col=1;col<ecranInt.getColMax()-1;col++){
-					col=col+1;
+				for(int col=1;col<ecranInt.getColMax()+1;col++){
 					ecranInt.updateColorByXY(lig1, col, ecranFin.getColorByXY(lig1,col));
+					col=col+1;
 				}
 				this.wait(100);
 				
