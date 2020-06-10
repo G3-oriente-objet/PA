@@ -21,7 +21,8 @@ public class Voyage extends AbstractVoyage {
      */
     public Voyage(ArrayList<Planete> listPlanete, AbstractVoyageur simulatedVoyageur) {
         super(listPlanete, simulatedVoyageur);
-        // TODO Auto-generated constructor stub
+        // TODO optimisation du parcours
+      
     }
 
     /**
@@ -31,7 +32,7 @@ public class Voyage extends AbstractVoyage {
      */
     public Voyage(ArrayList<Planete> listPlanete, AbstractVoyageur simulatedVoyageur, AbstractVoyageur realVoyager) {
         super(listPlanete, simulatedVoyageur, realVoyager);
-        // TODO Auto-generated constructor stub
+        // TODO affecter le trajet au robot
     }
 
     /* (non-Javadoc)
@@ -39,7 +40,7 @@ public class Voyage extends AbstractVoyage {
      */
     @Override
     public int showFromPlanete(Planete p) {
-        // TODO Auto-generated method stub
+        // TODO afficher la photo de la planète
         return 0;
     }
 
@@ -48,7 +49,7 @@ public class Voyage extends AbstractVoyage {
      */
     @Override
     public int showAll() {
-        // TODO Auto-generated method stub
+        // TODO Map des planètes avec le vaisseau
         return 0;
     }
 

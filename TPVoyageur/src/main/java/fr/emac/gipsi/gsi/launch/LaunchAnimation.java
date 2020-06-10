@@ -41,7 +41,11 @@ public class LaunchAnimation {
 		ab.setEcranDeb(ListScreen.Vol2());
 		ab.setEcranFin(ListScreen.SolElec());
 		
-		ab.runAnimation();
+		AbstractAnimation ac = new AnimationFlash();
+		ac.setEcranDeb(ListScreen.Psy());
+		ac.setEcranFin(ListScreen.Tenebre());
+		
+		ac.runAnimation();
 
 	}
 
