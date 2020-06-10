@@ -33,7 +33,11 @@ public class LaunchAnimation {
 		ab.setEcranDeb(ListScreen.Elec());
 		ab.setEcranFin(ListScreen.Eau());
 		
-		ab.runAnimation();
+		AbstractAnimation ac = new AnimationFlash();
+		ac.setEcranDeb(ListScreen.Psy());
+		ac.setEcranFin(ListScreen.Tenebre());
+		
+		ac.runAnimation();
 
 	}
 
