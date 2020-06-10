@@ -10,6 +10,7 @@ import fr.emac.gipsi.gsi.animation.AnimationDiag;
 import fr.emac.gipsi.gsi.animation.AnimationDirecte;
 import fr.emac.gipsi.gsi.animation.AnimationFlash;
 import fr.emac.gipsi.gsi.animation.AnimationLigne;
+import fr.emac.gipsi.gsi.animation.AnimationSpirale;
 import fr.emac.gipsi.gsi.ecran.ListScreen;
 
 /**
@@ -23,10 +24,16 @@ public class LaunchAnimation {
 	 */
 	public static void main(String[] args) {
 		
+<<<<<<< HEAD
+		AbstractAnimation aa = new AnimationSpirale();
+		aa.setEcranDeb(ListScreen.Elec());
+		aa.setEcranFin(ListScreen.Vol1());
+=======
 		
 		AbstractAnimation aa = new AnimationFlash();
 		aa.setEcranDeb(ListScreen.Atterissage2());
 		aa.setEcranFin(ListScreen.Decoll());
+>>>>>>> f719ef95bb6775d55080c8306bf4ed1c876cc1b6
 		
 		aa.runAnimation();
 		aa.wait(1000);
@@ -56,9 +63,15 @@ public class LaunchAnimation {
 		photo.runAnimation();
 		photo.wait(1000);
 		
+<<<<<<< HEAD
+		AbstractAnimation ac = new AnimationDirecte();
+		ac.setEcranDeb(ListScreen.Vol1());
+		ac.setEcranFin(ListScreen.Vol1());
+=======
 		AbstractAnimation ac = new AnimationFlash();
 		ac.setEcranDeb(ListScreen.Photo());
 		ac.setEcranFin(ListScreen.Plante());
+>>>>>>> f719ef95bb6775d55080c8306bf4ed1c876cc1b6
 		
 		ac.runAnimation();
 		ac.wait(1500);
