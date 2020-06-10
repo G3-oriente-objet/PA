@@ -23,10 +23,13 @@ public class LaunchAnimation {
 	 */
 	public static void main(String[] args) {
 		
-		AbstractAnimation aa = new AnimationFlash();
-		aa.setEcranDeb(ListScreen.Elec());
-		aa.setEcranFin(ListScreen.Vol2());
 		
+		AbstractAnimation aa = new AnimationFlash();
+		aa.setEcranDeb(ListScreen.Atterissage2());
+		aa.setEcranFin(ListScreen.Decoll());
+		
+		aa.runAnimation();
+		aa.wait(1000);
 		
 		
 		AbstractAnimation vol1 = new AnimationDirecte();
@@ -37,23 +40,36 @@ public class LaunchAnimation {
 		vol2.setEcranDeb(ListScreen.Vol2());
 		vol2.setEcranFin(ListScreen.Vol1());
 		
+		for (int i = 0 ; i < 3 ; i++) {
+			vol1.runAnimation();
+			vol1.wait(700);
+			vol2.runAnimation();
+			vol2.wait(700);
+		}
+		
+		
 		AbstractAnimation photo = new AnimationAR();
 		photo.setEcranDeb(ListScreen.Photo());
 		photo.setEcranFin(ListScreen.PhotoFlash());
 		
+		
 		photo.runAnimation();
 		photo.wait(1000);
 		
-		AbstractAnimation ab = new AnimationFlash();
-		ab.setEcranDeb(ListScreen.Vol2());
-		ab.setEcranFin(ListScreen.SolElec());
-		
 		AbstractAnimation ac = new AnimationFlash();
-		ac.setEcranDeb(ListScreen.Psy());
-		ac.setEcranFin(ListScreen.Tenebre());
+		ac.setEcranDeb(ListScreen.Photo());
+		ac.setEcranFin(ListScreen.Plante());
 		
+		ac.runAnimation();
+		ac.wait(1500);
 		
-
+		AbstractAnimation ab = new AnimationFlash();
+		ab.setEcranDeb(ListScreen.Atterissage1());
+		ab.setEcranFin(ListScreen.Atterissage2());
+		
+		ab.runAnimation();
+		ab.wait(1000);
+		
 	}
 
 }
