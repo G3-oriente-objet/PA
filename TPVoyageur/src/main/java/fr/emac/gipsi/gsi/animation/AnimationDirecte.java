@@ -9,12 +9,12 @@ public class AnimationDirecte extends AbstractAnimation {
 		
 	}
 
-@Override
-public void runAnimation() {
+	@Override
+	public void runAnimation() {
 	
-	showScreen(ecranDeb);
-	wait(1000);
-	showScreen(ecranFin);
+		showScreen(ecranDeb);
+		wait(500);
+		showScreen(ecranFin);
 
 }
 

@@ -6,6 +6,7 @@ package fr.emac.gipsi.gsi.launch;
 import fr.emac.gipsi.gsi.animation.AbstractAnimation;
 import fr.emac.gipsi.gsi.animation.AnimationByColumn;
 import fr.emac.gipsi.gsi.animation.AnimationDiag;
+import fr.emac.gipsi.gsi.animation.AnimationDirecte;
 import fr.emac.gipsi.gsi.animation.AnimationFlash;
 import fr.emac.gipsi.gsi.animation.AnimationLigne;
 import fr.emac.gipsi.gsi.ecran.ListScreen;
@@ -29,13 +30,21 @@ public class LaunchAnimation {
 		
 		aa.wait(700);
 		
-		AbstractAnimation vol = new AnimationLigne();
-		vol.setEcranDeb(ListScreen.Vol1());
-		vol.setEcranFin(ListScreen.Vol2());
+		AbstractAnimation vol1 = new AnimationDirecte();
+		vol1.setEcranDeb(ListScreen.Vol1());
+		vol1.setEcranFin(ListScreen.Vol2());
 		
-		vol.runAnimation();
+		AbstractAnimation vol2 = new AnimationDirecte();
+		vol2.setEcranDeb(ListScreen.Vol2());
+		vol2.setEcranFin(ListScreen.Vol1());
+		
+		for (int i = 0 ; i < 2 ; i++) {
+			vol1.runAnimation();
+			vol2.runAnimation();
+		}
+		
 
-		vol.wait(2000);
+		vol2.wait(1000);
 		
 		AbstractAnimation ab = new AnimationFlash();
 		ab.setEcranDeb(ListScreen.Vol2());
