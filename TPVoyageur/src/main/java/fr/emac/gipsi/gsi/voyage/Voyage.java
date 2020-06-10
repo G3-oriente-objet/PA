@@ -80,20 +80,66 @@ public class Voyage extends AbstractVoyage {
     	return listPlanete.get(N);
     }
     public void goTo(Position P) {
+    	if (getSimulatedvoyageur().getPosBody().getY()<P.getY()) {
+    		if (getSimulatedvoyageur().getDirection()=="O") {
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goBackward();
+    			}
+    		}
+    		if (getSimulatedvoyageur().getDirection()=="S") {
+    			getSimulatedvoyageur().turnLeft();
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goForward();
+    			}
+    		}
+    		if (getSimulatedvoyageur().getDirection()=="N") {
+    			getSimulatedvoyageur().turnRight();
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goForward();
+    			}
+    		}
+    		if (getSimulatedvoyageur().getDirection()=="E") {
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goForward();
+    			}
+    		}
+    	}
+    	if (getSimulatedvoyageur().getPosBody().getY()>P.getY()) {
+    		if (getSimulatedvoyageur().getDirection()=="O") {
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goForward();
+    			}
+    		}
+    		if (getSimulatedvoyageur().getDirection()=="S") {
+    			getSimulatedvoyageur().turnRight();
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goForward();
+    			}
+    		}
+    		if (getSimulatedvoyageur().getDirection()=="N") {
+    			getSimulatedvoyageur().turnLeft();
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goForward();
+    			}
+    		}
+    		if (getSimulatedvoyageur().getDirection()=="E") {
+    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
+    				getSimulatedvoyageur().goBackward();
+    			}
+    		}
+    	}
     	if (getSimulatedvoyageur().getPosBody().getX()<P.getX()) {
     		if (getSimulatedvoyageur().getDirection()=="N") {
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goBackward();
     				afficheEcran();
     			}
-    			afficheEcran();
     		}
     		if (getSimulatedvoyageur().getDirection()=="O") {
     			getSimulatedvoyageur().turnLeft();
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goForward();
     			}
-    			afficheEcran();
     		}
     		if (getSimulatedvoyageur().getDirection()=="E") {
     			getSimulatedvoyageur().turnRight();
@@ -106,96 +152,31 @@ public class Voyage extends AbstractVoyage {
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goForward();
     			}
-    			afficheEcran();
     		}
     	}
-    	else if (getSimulatedvoyageur().getPosBody().getX()>P.getX()) {
+    	if (getSimulatedvoyageur().getPosBody().getX()>P.getX()) {
     		if (getSimulatedvoyageur().getDirection()=="N") {
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goForward();
     			}
-    			afficheEcran();
     		}
     		if (getSimulatedvoyageur().getDirection()=="O") {
     			getSimulatedvoyageur().turnRight();
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goForward();
     			}
-    			afficheEcran();
     		}
     		if (getSimulatedvoyageur().getDirection()=="E") {
     			getSimulatedvoyageur().turnLeft();
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goForward();
     			}
-    			afficheEcran();
     		}
     		if (getSimulatedvoyageur().getDirection()=="S") {
     			while (getSimulatedvoyageur().getPosBody().getX()!=P.getX()) {
     				getSimulatedvoyageur().goBackward();
     			}
-    			afficheEcran();
     		}
-    	}
-    	else {
-    	}
-    	if (getSimulatedvoyageur().getPosBody().getY()<P.getY()) {
-    		if (getSimulatedvoyageur().getDirection()=="O") {
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goBackward();
-    			}
-    			afficheEcran();
-    		}
-    		if (getSimulatedvoyageur().getDirection()=="S") {
-    			getSimulatedvoyageur().turnLeft();
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goForward();
-    			}
-    			
-    		}
-    		if (getSimulatedvoyageur().getDirection()=="N") {
-    			getSimulatedvoyageur().turnRight();
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goForward();
-    			}
-    			afficheEcran();
-    		}
-    		if (getSimulatedvoyageur().getDirection()=="E") {
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goForward();
-    			}
-    			afficheEcran();
-    		}
-    	}
-    	else if (getSimulatedvoyageur().getPosBody().getY()>P.getY()) {
-    		if (getSimulatedvoyageur().getDirection()=="O") {
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goForward();
-    			}
-    			afficheEcran();
-    		}
-    		if (getSimulatedvoyageur().getDirection()=="S") {
-    			getSimulatedvoyageur().turnRight();
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goForward();
-    			}
-    			afficheEcran();
-    		}
-    		if (getSimulatedvoyageur().getDirection()=="N") {
-    			getSimulatedvoyageur().turnLeft();
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goForward();
-    			}
-    			afficheEcran();
-    		}
-    		if (getSimulatedvoyageur().getDirection()=="E") {
-    			while (getSimulatedvoyageur().getPosBody().getY()!=P.getY()) {
-    				getSimulatedvoyageur().goBackward();
-    			}
-    			afficheEcran();
-    		}
-    	}
-    	else {
     	}
     	afficheEcran();
     }
@@ -203,6 +184,8 @@ public class Voyage extends AbstractVoyage {
     public void lancementSimuler() {
         // TODO Auto-generated method stub
         afficheEcran();
+        getSimulatedvoyageur();
+    	goTo(listPlanete.get(2).getPos());
         
     }
 }
