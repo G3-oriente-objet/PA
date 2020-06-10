@@ -3,6 +3,9 @@
  */
 package fr.emac.gipsi.gsi.voyage;
 
+import fr.emac.gipsi.gsi.animation.AbstractAnimation;
+import fr.emac.gipsi.gsi.animation.AnimationFlash;
+import fr.emac.gipsi.gsi.ecran.ListScreen;
 import fr.emac.gipsi.gsi.voyageur.AbstractVoyageur;
 
 import java.util.ArrayList;
@@ -13,7 +16,8 @@ import java.util.ArrayList;
  */
 public class Voyage extends AbstractVoyage {
 	
-	int M, N,i;
+	int M, N,i,j;
+	ArrayList<Planete> L;
 
     /**
      * @param listPlanete
@@ -194,6 +198,17 @@ public class Voyage extends AbstractVoyage {
     	return listPlanete.get(N);
     }
     
+    public ArrayList<Planete> enleve(ArrayList<Planete> listAccessibilite, ArrayList<Planete> alreadyVisit){
+    	L = new ArrayList<Planete>();
+    	for (i=0;i<listAccessibilite.size();i++) {
+    		for (j = 0;j<alreadyVisit.size();j++) {
+    			if (listAccessibilite.get(i)==alreadyVisit.get(j)) {
+    				L.add(listAccessibilite.get(i));
+    			}
+    		}
+    	}
+    	return L;
+    }
     
     
     
@@ -201,6 +216,12 @@ public class Voyage extends AbstractVoyage {
     public void lancementSimuler() {
         // TODO Auto-generated method stub
         afficheEcran();
+        if (enleve(listAccessibilite, alreadyVisit) == []) {
+        	goTo(min(listPlanete,getSimulatedvoyageur().getPosBody()).getPos());
+        }
+        else {
+        	goTo(min(enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),Planete.getAlreadyVisit()).getPos()));
+        }
     	goTo(min(listPlanete,getSimulatedvoyageur().getPosBody()).getPos());
     	goTo(min(listPlanete,getSimulatedvoyageur().getPosBody()).getPos());
         
