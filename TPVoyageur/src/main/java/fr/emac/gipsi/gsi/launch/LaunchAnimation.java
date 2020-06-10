@@ -23,7 +23,7 @@ public class LaunchAnimation {
 		
 		AbstractAnimation aa = new AnimationFlash();
 		aa.setEcranDeb(ListScreen.Elec());
-		aa.setEcranFin(ListScreen.Vol1());
+		aa.setEcranFin(ListScreen.Vol2());
 		
 		aa.runAnimation();
 		
