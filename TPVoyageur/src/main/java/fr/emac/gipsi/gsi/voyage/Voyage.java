@@ -216,11 +216,17 @@ public class Voyage extends AbstractVoyage {
     public void lancementSimuler() {
         // TODO Auto-generated method stub
         afficheEcran();
-        if (enleve(listAccessibilite, alreadyVisit) == []) {
-        	goTo(min(listPlanete,getSimulatedvoyageur().getPosBody()).getPos());
+        while getAlreadyVisit().size()!=nbplaneteavecsol
+        if (enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getAlreadyVisit()) == []) {
+        	if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite().size() != 1){ 
+        		goTo(min(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getSimulatedvoyageur().getPosBody()).getPos());
+        	}
+        	else {
+        		goTo(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(0));
+        	}
         }
         else {
-        	goTo(min(enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),Planete.getAlreadyVisit()).getPos()));
+        	goTo(min(enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getAlreadyVisit()),getSimulatedvoyageur().getPosBody()).getPos()));
         }
     	goTo(min(listPlanete,getSimulatedvoyageur().getPosBody()).getPos());
     	goTo(min(listPlanete,getSimulatedvoyageur().getPosBody()).getPos());
