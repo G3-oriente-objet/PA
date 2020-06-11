@@ -13,7 +13,7 @@ public class AnimationDirecte extends AbstractAnimation {
 	public void runAnimation() {
 	
 		showScreen(ecranDeb);
-		wait(500);
+		wait(1000);
 		showScreen(ecranFin);
 
 }
