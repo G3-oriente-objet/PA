@@ -16,8 +16,6 @@ import java.util.ArrayList;
  */
 public class Voyage extends AbstractVoyage {
 	
-	int M, N,i,j;
-	ArrayList<Planete> L;
 
     /**
      * @param listPlanete
@@ -74,12 +72,12 @@ public class Voyage extends AbstractVoyage {
     }
     
     public Planete min(ArrayList<Planete> listPlanete, Position P) {
-    	 M = calculDist(listPlanete.get(0).getPos(), P);
+    	int  M = calculDist(listPlanete.get(0).getPos(), P);
     	 if (M==0) {
     		 M = calculDist(listPlanete.get(1).getPos(), P); 
     	 }
-    	 N = 0;
-    	for (i=1;i<listPlanete.size();i++) {
+    	int  N = 0;
+    	for (int i=1;i<listPlanete.size();i++) {
     		if ((calculDist(listPlanete.get(i).getPos(), P)<M)&&(calculDist(listPlanete.get(i).getPos(),P)!=0)) {
     			M = calculDist(listPlanete.get(i).getPos(), P);
         		N = i;
@@ -189,8 +187,8 @@ public class Voyage extends AbstractVoyage {
     	afficheEcran();
     }
     public Planete where(ArrayList<Planete> listPlanete, Position P) {
-    	N=0;
-    	for (i=0;i<listPlanete.size();i++) {
+    	int N=0;
+    	for (int i=0;i<listPlanete.size();i++) {
     		if (calculDist(listPlanete.get(i).getPos(), P) == 0){
     			N=i;
     		}
@@ -199,10 +197,10 @@ public class Voyage extends AbstractVoyage {
     }
     
     public ArrayList<Planete> enleve(ArrayList<Planete> listAccessibilite, ArrayList<Planete> alreadyVisit){
-    	L = new ArrayList<Planete>();
-    	for (i=0;i<listAccessibilite.size();i++) {
-    		for (j = 0;j<alreadyVisit.size();j++) {
-    			if (listAccessibilite.get(i)==alreadyVisit.get(j)) {
+    	ArrayList<Planete> L = new ArrayList<Planete>();
+    	for (int i=0;i<listAccessibilite.size();i++) {
+    		for (int j = 0;j<alreadyVisit.size();j++) {
+    			if (listAccessibilite.get(i).equals(alreadyVisit.get(j))){
     				L.add(listAccessibilite.get(i));
     			}
     		}
@@ -211,8 +209,11 @@ public class Voyage extends AbstractVoyage {
     }
     
     public int estDans(ArrayList<Planete> alreadyVisit, Planete P) {
-    	for (i=0;i<alreadyVisit.size();i++) {
-    		if (alreadyVisit.get(i) == P) {
+    	if (alreadyVisit.isEmpty()){
+    		return 0;
+    	}
+    	for (int i=0;i<alreadyVisit.size();i++) {
+    		if (alreadyVisit.get(i).equals(P)) {
     			return 1;
     		}
     	}
@@ -220,8 +221,9 @@ public class Voyage extends AbstractVoyage {
     }
     
     public int nbPlanAcces(ArrayList<Planete> listPlanete) {
-    	for (i=0;i<listPlanete.size();i++) {
-    		for (j=0;j<listPlanete.get(i).getListAccessibilite().size();j++) {
+    	ArrayList<Planete> L = new ArrayList<Planete>();
+    	for (int i=0;i<listPlanete.size();i++) {
+    		for (int j=0;j<listPlanete.get(i).getListAccessibilite().size();j++) {
     			if (estDans(L,listPlanete.get(i).getListAccessibilite().get(j)) == 0) {
     				L.add(listPlanete.get(i).getListAccessibilite().get(j));
     			}
