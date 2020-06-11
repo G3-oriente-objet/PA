@@ -210,26 +210,55 @@ public class Voyage extends AbstractVoyage {
     	return L;
     }
     
+    public int estDans(ArrayList<Planete> alreadyVisit, Planete P) {
+    	for (i=0;i<alreadyVisit.size();i++) {
+    		if (alreadyVisit.get(i) == P) {
+    			return 1;
+    		}
+    	}
+    	return 0;
+    }
+    
+    public int nbPlanAcces(ArrayList<Planete> listPlanete) {
+    	for (i=0;i<listPlanete.size();i++) {
+    		for (j=0;j<listPlanete.get(i).getListAccessibilite().size();j++) {
+    			if (estDans(L,listPlanete.get(i).getListAccessibilite().get(j)) == 0) {
+    				L.add(listPlanete.get(i).getListAccessibilite().get(j));
+    			}
+    		}
+    	}
+    	return L.size();
+    }
+    
     
     
     @Override
     public void lancementSimuler() {
         // TODO Auto-generated method stub
         afficheEcran();
-        while getAlreadyVisit().size()!=nbplaneteavecsol
-        if (enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getAlreadyVisit()) == []) {
-        	if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite().size() != 1){ 
-        		goTo(min(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getSimulatedvoyageur().getPosBody()).getPos());
+        while (getSimulatedvoyageur().getAlreadyVisit().size()!=nbPlanAcces(listPlanete)){
+        	
+        	if (estDans(getSimulatedvoyageur().getAlreadyVisit(),where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0){
+    			
+        		getSimulatedvoyageur().getAlreadyVisit().add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        	}	
+        	if (enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getSimulatedvoyageur().getAlreadyVisit()).isEmpty()) {
+        	
+        		if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite().size() != 1){ 
+        		
+        			goTo(min(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getSimulatedvoyageur().getPosBody()).getPos());
+        		
+        		
+        			}
+        		else {
+        			goTo(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite().get(0).getPos());
+        		}
         	}
+        
         	else {
-        		goTo(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(0));
+        		goTo(min(enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getSimulatedvoyageur().getAlreadyVisit()),getSimulatedvoyageur().getPosBody()).getPos());
         	}
         }
-        else {
-        	goTo(min(enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getAlreadyVisit()),getSimulatedvoyageur().getPosBody()).getPos()));
-        }
-    	goTo(min(listPlanete,getSimulatedvoyageur().getPosBody()).getPos());
-    	goTo(min(listPlanete,getSimulatedvoyageur().getPosBody()).getPos());
         
     }
 }
