@@ -6,11 +6,10 @@ package fr.emac.gipsi.gsi.launch;
 import fr.emac.gipsi.gsi.animation.AbstractAnimation;
 import fr.emac.gipsi.gsi.animation.AnimationAR;
 import fr.emac.gipsi.gsi.animation.AnimationByColumn;
-<<<<<<< HEAD
+
 import fr.emac.gipsi.gsi.animation.AnimationCroiser;
-=======
 import fr.emac.gipsi.gsi.animation.AnimationCroix;
->>>>>>> fdba291674877b66519f7e173b02ead373eafe94
+
 import fr.emac.gipsi.gsi.animation.AnimationDiag;
 import fr.emac.gipsi.gsi.animation.AnimationDirecte;
 import fr.emac.gipsi.gsi.animation.AnimationFlash;
@@ -30,21 +29,12 @@ public class LaunchAnimation {
 	 */
 	public static void main(String[] args) {
 
-		
-<<<<<<< HEAD
+
 		AbstractAnimation aa = new AnimationPokeball();
-		aa.setEcranDeb(ListScreen.Psy());
-		aa.setEcranFin(ListScreen.Feu());
-		
-		aa.runAnimation();
-				
-=======
-		AbstractAnimation aa = new AnimationCroix();
 		aa.setEcranDeb(ListScreen.SolElec());
 		aa.setEcranFin(ListScreen.Psy());
 		
 		aa.runAnimation();
-		aa.wait(1000);
 		
 		/*
 		AbstractAnimation vol1 = new AnimationDirecte();
@@ -86,7 +76,7 @@ public class LaunchAnimation {
 		ab.runAnimation();
 		ab.wait(1000);
 		*/
->>>>>>> fdba291674877b66519f7e173b02ead373eafe94
+
 	}
 
 }

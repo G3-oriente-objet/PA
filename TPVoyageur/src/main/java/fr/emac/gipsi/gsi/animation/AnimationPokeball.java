@@ -27,7 +27,7 @@ public class AnimationPokeball extends AbstractAnimation {
 			VisualRectangle Gold = new VisualRectangle();
 			Gold.setNomCouleur("Gold");
 			
-			for (int lig = 0; lig <= (ecranInt.getLigMax()-4);lig++) {
+			for (int lig = 0; lig <= (ecranInt.getLigMax()-4);lig++)  {
 				for (int col = 0; col <= (ecranInt.getColMax()-4); col++) {
 					
 							ecranInt.updateColorByXY(lig, col, ecranFin.getColorByXY(lig,col));
@@ -53,21 +53,32 @@ public class AnimationPokeball extends AbstractAnimation {
 							ecranInt.updateColorByXY(lig+4, col+1, W);
 							ecranInt.updateColorByXY(lig+4, col+2, W);
 							ecranInt.updateColorByXY(lig+4, col+3, W);
-
-							this.wait(50);
-							this.showScreen(ecranInt);
-							ecranInt.updateColorByXY(lig+1, col, ecranFin.getColorByXY(lig+1,col));
-							ecranInt.updateColorByXY(lig+2, col, ecranFin.getColorByXY(lig+2,col));
-							ecranInt.updateColorByXY(lig+3, col, ecranFin.getColorByXY(lig+3,col));
-							ecranInt.updateColorByXY(lig+4, col, ecranFin.getColorByXY(lig+4,col));
 							
-					
-						}}
+							if(col>= 1) {
+							ecranInt.updateColorByXY(lig+1, col-1, ecranFin.getColorByXY(lig+1,col-1));
+							ecranInt.updateColorByXY(lig+2, col-1, ecranFin.getColorByXY(lig+2,col-1));
+							ecranInt.updateColorByXY(lig+3, col-1, ecranFin.getColorByXY(lig+3,col-1));}
+							
+							this.showScreen(ecranInt);
+							this.wait(25);
+							
+							if(col==ecranInt.getColMax()-4) {
+								for (int f = 0; f <= 4; f++) {
+									ecranInt.updateColorByXY(lig, col+f, ecranFin.getColorByXY(lig,col+f));
+									ecranInt.updateColorByXY(lig+1, col+f, ecranFin.getColorByXY(lig+1,col+f));
+									ecranInt.updateColorByXY(lig+2, col+f, ecranFin.getColorByXY(lig+2,col+f));
+									ecranInt.updateColorByXY(lig+3, col+f, ecranFin.getColorByXY(lig+3,col+f));
+									ecranInt.updateColorByXY(lig+4, col+f, ecranFin.getColorByXY(lig+4,col+f));
+								this.showScreen(ecranInt);
+								this.wait(25);}
+							
+				}}}			
+				
 								
 							
 						
 
-				this.wait(100);
+				
 				this.showScreen(ecranFin);
 			}
 		}
