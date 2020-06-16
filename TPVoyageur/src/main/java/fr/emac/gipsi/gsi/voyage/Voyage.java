@@ -16,8 +16,6 @@ import java.util.ArrayList;
  */
 public class Voyage extends AbstractVoyage {
 	
-	int M, N,i,j;
-	ArrayList<Planete> L;
 
     /**
      * @param listPlanete
@@ -69,23 +67,28 @@ public class Voyage extends AbstractVoyage {
     /* (non-Javadoc)
      * @see fr.emac.gipsi.gsi.voyage.AbstractVoyage#pilotageSimuler()
      */
-    public int calculDist(Position R, Position P) {
-    	return ((R.getX()-P.getX())^2 + (R.getY()-P.getY())^2)^(1/2);
+    public double calculDist(Position R, Position P) {
+    	return Math.sqrt(Math.pow((R.getX()-P.getX()),2) + Math.pow(R.getY()-P.getY(), 2));
     }
     
-    public Planete min(ArrayList<Planete> listPlanete, Position P) {
-    	 M = calculDist(listPlanete.get(0).getPos(), P);
-    	 if (M==0) {
-    		 M = calculDist(listPlanete.get(1).getPos(), P); 
-    	 }
-    	 N = 0;
-    	for (i=1;i<listPlanete.size();i++) {
-    		if ((calculDist(listPlanete.get(i).getPos(), P)<M)&&(calculDist(listPlanete.get(i).getPos(),P)!=0)) {
-    			M = calculDist(listPlanete.get(i).getPos(), P);
-        		N = i;
-    		}
+    public Planete min(ArrayList<Planete> listPlanete,ArrayList<Planete> listPlaneteVisit, Position P) {
+    	if (listPlanete.size()==1){
+    		return listPlanete.get(0);
     	}
-    	return listPlanete.get(N);
+    	else {
+    		double  M = calculDist(listPlanete.get(0).getPos(), P);
+    		if ((M==0)||(listPlanete.get(0).equals(listPlaneteVisit.get(listPlaneteVisit.size()-1)))) {
+    			M = calculDist(listPlanete.get(1).getPos(), P); 
+    		}
+    		int  N = 0;
+    		for (int i=1;i<listPlanete.size();i++) {
+    			if ((calculDist(listPlanete.get(i).getPos(), P)<M)&&(calculDist(listPlanete.get(i).getPos(),P)!=0)&&((!listPlanete.get(i).equals(listPlaneteVisit.get(listPlaneteVisit.size()-1))))) {
+    				M = calculDist(listPlanete.get(i).getPos(), P);
+    				N = i;
+    			}
+    		}
+    		return listPlanete.get(N);
+    	}
     }
     public void goTo(Position P) {
     	if (getSimulatedvoyageur().getPosBody().getY()<P.getY()) {
@@ -189,8 +192,8 @@ public class Voyage extends AbstractVoyage {
     	afficheEcran();
     }
     public Planete where(ArrayList<Planete> listPlanete, Position P) {
-    	N=0;
-    	for (i=0;i<listPlanete.size();i++) {
+    	int N=0;
+    	for (int i=0;i<listPlanete.size();i++) {
     		if (calculDist(listPlanete.get(i).getPos(), P) == 0){
     			N=i;
     		}
@@ -199,20 +202,21 @@ public class Voyage extends AbstractVoyage {
     }
     
     public ArrayList<Planete> enleve(ArrayList<Planete> listAccessibilite, ArrayList<Planete> alreadyVisit){
-    	L = new ArrayList<Planete>();
-    	for (i=0;i<listAccessibilite.size();i++) {
-    		for (j = 0;j<alreadyVisit.size();j++) {
-    			if (listAccessibilite.get(i)==alreadyVisit.get(j)) {
+    	ArrayList<Planete> L = new ArrayList<Planete>();
+    	for (int i=0;i<listAccessibilite.size();i++) {
+    			if (estDans(alreadyVisit,listAccessibilite.get(i))==0){
     				L.add(listAccessibilite.get(i));
     			}
-    		}
     	}
     	return L;
     }
     
     public int estDans(ArrayList<Planete> alreadyVisit, Planete P) {
-    	for (i=0;i<alreadyVisit.size();i++) {
-    		if (alreadyVisit.get(i) == P) {
+    	if (alreadyVisit.isEmpty()){
+    		return 0;
+    	}
+    	for (int i=0;i<alreadyVisit.size();i++) {
+    		if (alreadyVisit.get(i).equals(P)) {
     			return 1;
     		}
     	}
@@ -220,8 +224,9 @@ public class Voyage extends AbstractVoyage {
     }
     
     public int nbPlanAcces(ArrayList<Planete> listPlanete) {
-    	for (i=0;i<listPlanete.size();i++) {
-    		for (j=0;j<listPlanete.get(i).getListAccessibilite().size();j++) {
+    	ArrayList<Planete> L = new ArrayList<Planete>();
+    	for (int i=0;i<listPlanete.size();i++) {
+    		for (int j=0;j<listPlanete.get(i).getListAccessibilite().size();j++) {
     			if (estDans(L,listPlanete.get(i).getListAccessibilite().get(j)) == 0) {
     				L.add(listPlanete.get(i).getListAccessibilite().get(j));
     			}
@@ -236,8 +241,10 @@ public class Voyage extends AbstractVoyage {
     public void lancementSimuler() {
         // TODO Auto-generated method stub
         afficheEcran();
+        ArrayList<Planete> listPlaneteVisit = new ArrayList<Planete>();
         while (getSimulatedvoyageur().getAlreadyVisit().size()!=nbPlanAcces(listPlanete)){
-        	
+    
+        	listPlaneteVisit.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
         	if (estDans(getSimulatedvoyageur().getAlreadyVisit(),where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0){
     			
         		getSimulatedvoyageur().getAlreadyVisit().add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
@@ -246,7 +253,7 @@ public class Voyage extends AbstractVoyage {
         	
         		if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite().size() != 1){ 
         		
-        			goTo(min(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getSimulatedvoyageur().getPosBody()).getPos());
+        			goTo(min(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),listPlaneteVisit, getSimulatedvoyageur().getPosBody()).getPos());
         		
         		
         			}
@@ -256,9 +263,8 @@ public class Voyage extends AbstractVoyage {
         	}
         
         	else {
-        		goTo(min(enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getSimulatedvoyageur().getAlreadyVisit()),getSimulatedvoyageur().getPosBody()).getPos());
+        		goTo(min(enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getSimulatedvoyageur().getAlreadyVisit()),listPlaneteVisit, getSimulatedvoyageur().getPosBody()).getPos());
         	}
         }
-        
     }
 }
