@@ -6,6 +6,7 @@ package fr.emac.gipsi.gsi.voyage;
 import fr.emac.gipsi.gsi.animation.AbstractAnimation;
 import fr.emac.gipsi.gsi.animation.AnimationFlash;
 import fr.emac.gipsi.gsi.ecran.ListScreen;
+import fr.emac.gipsi.gsi.screen.Screen;
 import fr.emac.gipsi.gsi.voyageur.AbstractVoyageur;
 
 import java.util.ArrayList;
@@ -193,7 +194,7 @@ public class Voyage extends AbstractVoyage {
     }
     public Planete where(ArrayList<Planete> listPlanete, Position P) {
     	int N=0;
-    	for (int i=0;i<listPlanete.size();i++) {
+    	for (int i=1;i<listPlanete.size();i++) {
     		if (calculDist(listPlanete.get(i).getPos(), P) == 0){
     			N=i;
     		}
@@ -223,6 +224,18 @@ public class Voyage extends AbstractVoyage {
     	return 0;
     }
     
+    public int estDansListPhoto(ArrayList<Screen> listPhotographie, Planete P) {
+    	if (listPhotographie.isEmpty()){
+    		return 0;
+    	}
+    	for (int i=0;i<listPhotographie.size();i++) {
+    		if (listPhotographie.get(i).equals(P.getImage())) {
+    			return 1;
+    		}
+    	}
+    	return 0;
+    }
+    
     public int nbPlanAcces(ArrayList<Planete> listPlanete) {
     	ArrayList<Planete> L = new ArrayList<Planete>();
     	for (int i=0;i<listPlanete.size();i++) {
@@ -242,29 +255,79 @@ public class Voyage extends AbstractVoyage {
         // TODO Auto-generated method stub
         afficheEcran();
         ArrayList<Planete> listPlaneteVisit = new ArrayList<Planete>();
+        ArrayList<Screen> listPhotographie = new ArrayList<Screen>();
+        ArrayList<Screen> listEchantillonRoche = new ArrayList<Screen>();
+        ArrayList<Screen> listEchantillonSol = new ArrayList<Screen>();
+        
+        if (estDansListPhoto(listEchantillonRoche, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+			getSimulatedvoyageur().takeEchantillonRoche(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+		}
+		
+		if (estDansListPhoto(listEchantillonSol, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+			getSimulatedvoyageur().takeEchantillonSol(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+		}
+		
+		if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+			getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+		}
+		
+		if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size()!=0) {
+			for (int i=0; i<where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size(); i++) {
+				if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i)) == 0) {
+					getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
+				}
+			}
+		}
         while (getSimulatedvoyageur().getAlreadyVisit().size()!=nbPlanAcces(listPlanete)){
     
         	listPlaneteVisit.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
-        	if (estDans(getSimulatedvoyageur().getAlreadyVisit(),where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0){
+        	
+            if (estDans(getSimulatedvoyageur().getAlreadyVisit(),where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0){
     			
         		getSimulatedvoyageur().getAlreadyVisit().add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
-        	}	
+        	}
+        	
         	if (enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getSimulatedvoyageur().getAlreadyVisit()).isEmpty()) {
         	
         		if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite().size() != 1){ 
         		
         			goTo(min(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),listPlaneteVisit, getSimulatedvoyageur().getPosBody()).getPos());
+        			
         		
-        		
-        			}
+        		}
         		else {
         			goTo(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite().get(0).getPos());
+        			
         		}
         	}
         
         	else {
         		goTo(min(enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getSimulatedvoyageur().getAlreadyVisit()),listPlaneteVisit, getSimulatedvoyageur().getPosBody()).getPos());
+        	
+        		if (estDansListPhoto(listEchantillonRoche, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+    				getSimulatedvoyageur().takeEchantillonRoche(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+    			}
+    			
+    			if (estDansListPhoto(listEchantillonSol, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+    				getSimulatedvoyageur().takeEchantillonSol(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+    			}
+    			if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+    				getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+    			}
+    			if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size()!=0) {
+    				for (int i=0; i<where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size(); i++) {
+    					if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i)) == 0) {
+    						getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
+    					}
+    				}
+    			}
+        	
         	}
+        	
+        	if (estDans(getSimulatedvoyageur().getAlreadyVisit(),where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0){
+    			
+        		getSimulatedvoyageur().getAlreadyVisit().add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        	}	
         }
     }
 }
