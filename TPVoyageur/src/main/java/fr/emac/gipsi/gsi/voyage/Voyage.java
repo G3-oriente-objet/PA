@@ -202,16 +202,6 @@ public class Voyage extends AbstractVoyage {
     	return listPlanete.get(N);
     }
     
-    public ArrayList<Planete> enleve(ArrayList<Planete> listAccessibilite, ArrayList<Planete> alreadyVisit){
-    	ArrayList<Planete> L = new ArrayList<Planete>();
-    	for (int i=0;i<listAccessibilite.size();i++) {
-    			if (estDans(alreadyVisit,listAccessibilite.get(i))==0){
-    				L.add(listAccessibilite.get(i));
-    			}
-    	}
-    	return L;
-    }
-    
     public int estDans(ArrayList<Planete> alreadyVisit, Planete P) {
     	if (alreadyVisit.isEmpty()){
     		return 0;
@@ -234,6 +224,16 @@ public class Voyage extends AbstractVoyage {
     		}
     	}
     	return 0;
+    }
+    
+    public ArrayList<Planete> enleve(ArrayList<Planete> listAccessibilite, ArrayList<Planete> alreadyVisit){
+    	ArrayList<Planete> L = new ArrayList<Planete>();
+    	for (int i=0;i<listAccessibilite.size();i++) {
+    			if (estDans(alreadyVisit,listAccessibilite.get(i))==0){
+    				L.add(listAccessibilite.get(i));
+    			}
+    	}
+    	return L;
     }
     
     public int nbPlanAcces(ArrayList<Planete> listPlanete) {
@@ -323,11 +323,7 @@ public class Voyage extends AbstractVoyage {
     			}
         	
         	}
-        	
-        	if (estDans(getSimulatedvoyageur().getAlreadyVisit(),where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0){
-    			
-        		getSimulatedvoyageur().getAlreadyVisit().add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
-        	}	
+        		
         }
     }
 }
