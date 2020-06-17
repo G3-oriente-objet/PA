@@ -321,9 +321,7 @@ public class Voyage extends AbstractVoyage {
     					}
     				}
     			}
-        	
-        	}
-        		
+        	}		
         }
     }
 }
