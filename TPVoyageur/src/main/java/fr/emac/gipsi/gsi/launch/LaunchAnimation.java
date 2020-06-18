@@ -30,9 +30,9 @@ public class LaunchAnimation {
 	public static void main(String[] args) {
 
 
-		AbstractAnimation aa = new AnimationPokeball();
+		AbstractAnimation aa = new AnimationSpirale();
 		aa.setEcranDeb(ListScreen.SolElec());
-		aa.setEcranFin(ListScreen.Psy());
+		aa.setEcranFin(ListScreen.Plante());
 		
 		aa.runAnimation();
 		
