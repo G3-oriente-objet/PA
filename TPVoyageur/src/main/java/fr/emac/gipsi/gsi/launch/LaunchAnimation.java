@@ -29,68 +29,68 @@ public class LaunchAnimation {
 	 */
 	public static void main(String[] args) {
 
-
+		
 		/*AbstractAnimation aa = new AnimationDirecte();
 		aa.setEcranDeb(ListScreen.Sol());
 		aa.setEcranFin(ListScreen.Decoll());
 		
 		aa.runAnimation();*/
 		
-		AbstractAnimation ab = new AnimationDirecte();
+		AbstractAnimation ab = new AnimationByColumn();
 		ab.setEcranDeb(ListScreen.Decoll());
 		ab.setEcranFin(ListScreen.Photo());
 		
 		ab.runAnimation();
 		
-		AbstractAnimation ac = new AnimationDirecte();
+		AbstractAnimation ac = new AnimationAR();
 		ac.setEcranDeb(ListScreen.Photo());
 		ac.setEcranFin(ListScreen.PhotoFlash());
 		
 		ac.runAnimation();
 		
-		AbstractAnimation ad = new AnimationDirecte();
+		AbstractAnimation ad = new AnimationPokeball();
 		ad.setEcranDeb(ListScreen.PhotoFlash());
 		ad.setEcranFin(ListScreen.Psy());
 		
 		ad.runAnimation();
 		
-		AbstractAnimation ae = new AnimationDirecte();
+		AbstractAnimation ae = new AnimationDiag();
 		ae.setEcranDeb(ListScreen.Psy());
-		ae.setEcranFin(ListScreen.Vol1());
+		ae.setEcranFin(ListScreen.Vol2());
 		
 		ae.runAnimation();
 		
-		AbstractAnimation af = new AnimationDirecte();
-		af.setEcranDeb(ListScreen.Vol1());
-		af.setEcranFin(ListScreen.Vol2());
+		AbstractAnimation af = new AnimationFlash();
+		af.setEcranDeb(ListScreen.Vol2());
+		af.setEcranFin(ListScreen.Vol1());
 		
 		af.runAnimation();
 		
-		AbstractAnimation ag = new AnimationDirecte();
-		ag.setEcranDeb(ListScreen.Vol2());
+		AbstractAnimation ag = new AnimationByColumn();
+		ag.setEcranDeb(ListScreen.Vol1());
 		ag.setEcranFin(ListScreen.Photo());
 		
 		ag.runAnimation();
 		
-		AbstractAnimation ah = new AnimationDirecte();
+		AbstractAnimation ah = new AnimationAR();
 		ah.setEcranDeb(ListScreen.Photo());
 		ah.setEcranFin(ListScreen.PhotoFlash());
 		
-		ae.runAnimation();
+		ah.runAnimation();
 		
-		AbstractAnimation ai = new AnimationDirecte();
+		AbstractAnimation ai = new AnimationPokeball();
 		ai.setEcranDeb(ListScreen.PhotoFlash());
 		ai.setEcranFin(ListScreen.Combat());
 		
 		ai.runAnimation();
 		
-		AbstractAnimation aj = new AnimationDirecte();
+		AbstractAnimation aj = new AnimationCroix();
 		aj.setEcranDeb(ListScreen.Combat());
 		aj.setEcranFin(ListScreen.Atterissage1());
 		
 		aj.runAnimation();
 		
-		AbstractAnimation ak = new AnimationDirecte();
+		AbstractAnimation ak = new AnimationFlash();
 		ak.setEcranDeb(ListScreen.Atterissage1());
 		ak.setEcranFin(ListScreen.Atterissage2());
 		
@@ -114,43 +114,43 @@ public class LaunchAnimation {
 		
 		an.runAnimation();*/
 		
-		AbstractAnimation ao = new AnimationDirecte();
+		AbstractAnimation ao = new AnimationDiag();
 		ao.setEcranDeb(ListScreen.Decoll());
-		ao.setEcranFin(ListScreen.Vol1());
+		ao.setEcranFin(ListScreen.Vol2());
 		
 		ao.runAnimation();
 		
-		AbstractAnimation ap = new AnimationDirecte();
-		ap.setEcranDeb(ListScreen.Vol1());
-		ap.setEcranFin(ListScreen.Vol2());
+		AbstractAnimation ap = new AnimationFlash();
+		ap.setEcranDeb(ListScreen.Vol2());
+		ap.setEcranFin(ListScreen.Vol1());
 		
 		ap.runAnimation();
 		
-		AbstractAnimation aq = new AnimationDirecte();
-		aq.setEcranDeb(ListScreen.Vol2());
+		AbstractAnimation aq = new AnimationByColumn();
+		aq.setEcranDeb(ListScreen.Vol1());
 		aq.setEcranFin(ListScreen.Photo());
 		
 		aq.runAnimation();
 		
-		AbstractAnimation ar = new AnimationDirecte();
+		AbstractAnimation ar = new AnimationAR();
 		ar.setEcranDeb(ListScreen.Photo());
 		ar.setEcranFin(ListScreen.PhotoFlash());
 		
 		ar.runAnimation();
 		
-		AbstractAnimation as = new AnimationDirecte();
+		AbstractAnimation as = new AnimationPokeball();
 		as.setEcranDeb(ListScreen.PhotoFlash());
 		as.setEcranFin(ListScreen.Feu());
 		
 		as.runAnimation();
 		
-		AbstractAnimation at = new AnimationDirecte();
+		AbstractAnimation at = new AnimationCroix();
 		at.setEcranDeb(ListScreen.Feu());
 		at.setEcranFin(ListScreen.Atterissage1());
 		
 		at.runAnimation();
 		
-		AbstractAnimation au = new AnimationDirecte();
+		AbstractAnimation au = new AnimationFlash();
 		au.setEcranDeb(ListScreen.Atterissage1());
 		au.setEcranFin(ListScreen.Atterissage2());
 		
@@ -175,73 +175,73 @@ public class LaunchAnimation {
 		ax.runAnimation();*/
 		
 		
-		AbstractAnimation ay = new AnimationDirecte();
+		AbstractAnimation ay = new AnimationByColumn();
 		ay.setEcranDeb(ListScreen.Decoll());
 		ay.setEcranFin(ListScreen.Photo());
 		
 		ay.runAnimation();
 
-		AbstractAnimation az = new AnimationDirecte();
+		AbstractAnimation az = new AnimationAR();
 		az.setEcranDeb(ListScreen.Photo());
 		az.setEcranFin(ListScreen.PhotoFlash());
 		
 		az.runAnimation();
 		
-		AbstractAnimation ba = new AnimationDirecte();
+		AbstractAnimation ba = new AnimationPokeball();
 		ba.setEcranDeb(ListScreen.PhotoFlash());
 		ba.setEcranFin(ListScreen.Eau());
 		
 		ba.runAnimation();
 		
-		AbstractAnimation bb = new AnimationDirecte();
+		AbstractAnimation bb = new AnimationDiag();
 		bb.setEcranDeb(ListScreen.Eau());
-		bb.setEcranFin(ListScreen.Vol1());
+		bb.setEcranFin(ListScreen.Vol2());
 		
 		bb.runAnimation();
 		
-		AbstractAnimation bc = new AnimationDirecte();
-		bc.setEcranDeb(ListScreen.Vol1());
-		bc.setEcranFin(ListScreen.Vol2());
+		AbstractAnimation bc = new AnimationFlash();
+		bc.setEcranDeb(ListScreen.Vol2());
+		bc.setEcranFin(ListScreen.Vol1());
 		
 		bc.runAnimation();
 		
-		AbstractAnimation bd = new AnimationDirecte();
-		bd.setEcranDeb(ListScreen.Vol2());
+		AbstractAnimation bd = new AnimationCroix();
+		bd.setEcranDeb(ListScreen.Vol1());
 		bd.setEcranFin(ListScreen.Atterissage1());
 		
 		bd.runAnimation();
 		
-		AbstractAnimation be = new AnimationDirecte();
+		AbstractAnimation be = new AnimationFlash();
 		be.setEcranDeb(ListScreen.Atterissage1());
 		be.setEcranFin(ListScreen.Atterissage2());
 		
 		be.runAnimation();
 		
-		AbstractAnimation bf = new AnimationDirecte();
+		AbstractAnimation bf = new AnimationLigne();
 		bf.setEcranDeb(ListScreen.Atterissage2());
 		bf.setEcranFin(ListScreen.Decoll());
 		
 		bf.runAnimation();
 		
-		AbstractAnimation bg = new AnimationDirecte();
+		AbstractAnimation bg = new AnimationDiag();
 		bg.setEcranDeb(ListScreen.Decoll());
-		bg.setEcranFin(ListScreen.Vol1());
+		bg.setEcranFin(ListScreen.Vol2());
 		
 		bg.runAnimation();
 		
-		AbstractAnimation bh = new AnimationDirecte();
-		bh.setEcranDeb(ListScreen.Vol1());
-		bh.setEcranFin(ListScreen.Vol2());
+		AbstractAnimation bh = new AnimationFlash();
+		bh.setEcranDeb(ListScreen.Vol2());
+		bh.setEcranFin(ListScreen.Vol1());
 		
 		bh.runAnimation();
 		
-		AbstractAnimation bi = new AnimationDirecte();
-		bi.setEcranDeb(ListScreen.Vol2());
+		AbstractAnimation bi = new AnimationCroix();
+		bi.setEcranDeb(ListScreen.Vol1());
 		bi.setEcranFin(ListScreen.Atterissage1());
 		
 		bi.runAnimation();
 		
-		AbstractAnimation bj = new AnimationDirecte();
+		AbstractAnimation bj = new AnimationFlash();
 		bj.setEcranDeb(ListScreen.Atterissage1());
 		bj.setEcranFin(ListScreen.Atterissage2());
 		
@@ -266,61 +266,61 @@ public class LaunchAnimation {
 		bm.runAnimation();*/
 		
 		
-		AbstractAnimation bn = new AnimationDirecte();
+		AbstractAnimation bn = new AnimationByColumn();
 		bn.setEcranDeb(ListScreen.Decoll());
 		bn.setEcranFin(ListScreen.Photo());
 		
 		bn.runAnimation();
 
-		AbstractAnimation bo = new AnimationDirecte();
+		AbstractAnimation bo = new AnimationAR();
 		bo.setEcranDeb(ListScreen.Photo());
 		bo.setEcranFin(ListScreen.PhotoFlash());
 		
 		bo.runAnimation();
 		
-		AbstractAnimation bp = new AnimationDirecte();
+		AbstractAnimation bp = new AnimationPokeball();
 		bp.setEcranDeb(ListScreen.PhotoFlash());
 		bp.setEcranFin(ListScreen.Elec());
 		
 		bp.runAnimation();
 		
-		AbstractAnimation bq = new AnimationDirecte();
+		AbstractAnimation bq = new AnimationDiag();
 		bq.setEcranDeb(ListScreen.Elec());
-		bq.setEcranFin(ListScreen.Vol1());
+		bq.setEcranFin(ListScreen.Vol2());
 		
 		bq.runAnimation();
 		
-		AbstractAnimation br = new AnimationDirecte();
-		br.setEcranDeb(ListScreen.Vol1());
-		br.setEcranFin(ListScreen.Vol2());
+		AbstractAnimation br = new AnimationFlash();
+		br.setEcranDeb(ListScreen.Vol2());
+		br.setEcranFin(ListScreen.Vol1());
 		
 		br.runAnimation();
 		
-		AbstractAnimation bs = new AnimationDirecte();
-		bs.setEcranDeb(ListScreen.Vol2());
+		AbstractAnimation bs = new AnimationByColumn();
+		bs.setEcranDeb(ListScreen.Vol1());
 		bs.setEcranFin(ListScreen.Photo());
 		
 		bs.runAnimation();
 		
-		AbstractAnimation bt = new AnimationDirecte();
+		AbstractAnimation bt = new AnimationAR();
 		bt.setEcranDeb(ListScreen.Photo());
 		bt.setEcranFin(ListScreen.PhotoFlash());
 		
 		bt.runAnimation();
 		
-		AbstractAnimation bu = new AnimationDirecte();
+		AbstractAnimation bu = new AnimationPokeball();
 		bu.setEcranDeb(ListScreen.PhotoFlash());
 		bu.setEcranFin(ListScreen.Plante());
 		
 		bu.runAnimation();
 		
-		AbstractAnimation bv = new AnimationDirecte();
+		AbstractAnimation bv = new AnimationCroix();
 		bv.setEcranDeb(ListScreen.Plante());
 		bv.setEcranFin(ListScreen.Atterissage1());
 		
 		bv.runAnimation();
 		
-		AbstractAnimation bw = new AnimationDirecte();
+		AbstractAnimation bw = new AnimationFlash();
 		bw.setEcranDeb(ListScreen.Atterissage1());
 		bw.setEcranFin(ListScreen.Atterissage2());
 		
@@ -340,55 +340,55 @@ public class LaunchAnimation {
 		by.runAnimation();*/
 		
 		
-		AbstractAnimation bz = new AnimationDirecte();
+		AbstractAnimation bz = new AnimationDiag();
 		bz.setEcranDeb(ListScreen.Decoll());
-		bz.setEcranFin(ListScreen.Vol1());
+		bz.setEcranFin(ListScreen.Vol2());
 		
 		bz.runAnimation();
 		
-		AbstractAnimation ca = new AnimationDirecte();
-		ca.setEcranDeb(ListScreen.Vol1());
-		ca.setEcranFin(ListScreen.Vol2());
+		AbstractAnimation ca = new AnimationFlash();
+		ca.setEcranDeb(ListScreen.Vol2());
+		ca.setEcranFin(ListScreen.Vol1());
 		
 		ca.runAnimation();
 		
-		AbstractAnimation cb = new AnimationDirecte();
-		cb.setEcranDeb(ListScreen.Vol2());
+		AbstractAnimation cb = new AnimationCroix();
+		cb.setEcranDeb(ListScreen.Vol1());
 		cb.setEcranFin(ListScreen.Atterissage1());
 		
 		cb.runAnimation();
 		
-		AbstractAnimation cc = new AnimationDirecte();
+		AbstractAnimation cc = new AnimationFlash();
 		cc.setEcranDeb(ListScreen.Atterissage1());
 		cc.setEcranFin(ListScreen.Atterissage2());
 		
 		cc.runAnimation();
 		
-		AbstractAnimation cd = new AnimationDirecte();
+		AbstractAnimation cd = new AnimationLigne();
 		cd.setEcranDeb(ListScreen.Atterissage2());
 		cd.setEcranFin(ListScreen.Decoll());
 		
 		cd.runAnimation();
 		
-		AbstractAnimation ce = new AnimationDirecte();
+		AbstractAnimation ce = new AnimationByColumn();
 		ce.setEcranDeb(ListScreen.Decoll());
-		ce.setEcranFin(ListScreen.Vol1());
+		ce.setEcranFin(ListScreen.Vol2());
 		
 		ce.runAnimation();
 		
-		AbstractAnimation cf = new AnimationDirecte();
-		cf.setEcranDeb(ListScreen.Vol1());
-		cf.setEcranFin(ListScreen.Vol2());
+		AbstractAnimation cf = new AnimationFlash();
+		cf.setEcranDeb(ListScreen.Vol2());
+		cf.setEcranFin(ListScreen.Vol1());
 		
 		cf.runAnimation();
 		
-		AbstractAnimation cg = new AnimationDirecte();
-		cg.setEcranDeb(ListScreen.Vol2());
+		AbstractAnimation cg = new AnimationCroix();
+		cg.setEcranDeb(ListScreen.Vol1());
 		cg.setEcranFin(ListScreen.Atterissage1());
 		
 		cg.runAnimation();
 		
-		AbstractAnimation ch = new AnimationDirecte();
+		AbstractAnimation ch = new AnimationFlash();
 		ch.setEcranDeb(ListScreen.Atterissage1());
 		ch.setEcranFin(ListScreen.Atterissage2());
 		
@@ -406,16 +406,17 @@ public class LaunchAnimation {
 		
 		cj.runAnimation();*/
 		
-		/*
-		AbstractAnimation vol1 = new AnimationDirecte();
+		
+		
+		/*AbstractAnimation vol1 = new AnimationAR();
 		vol1.setEcranDeb(ListScreen.Vol1());
 		vol1.setEcranFin(ListScreen.Vol2());
 		
-		AbstractAnimation vol2 = new AnimationDirecte();
+		AbstractAnimation vol2 = new AnimationAR();
 		vol2.setEcranDeb(ListScreen.Vol2());
 		vol2.setEcranFin(ListScreen.Vol1());
 		
-		for (int i = 0 ; i < 3 ; i++) {
+		/*for (int i = 0 ; i < 3 ; i++) {
 			vol1.runAnimation();
 			vol1.wait(700);
 			vol2.runAnimation();
