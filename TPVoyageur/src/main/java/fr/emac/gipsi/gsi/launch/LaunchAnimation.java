@@ -29,7 +29,11 @@ public class LaunchAnimation {
 	 */
 	public static void main(String[] args) {
 
-		
+
+		AbstractAnimation aa = new AnimationSpirale();
+		aa.setEcranDeb(ListScreen.SolElec());
+		aa.setEcranFin(ListScreen.Plante());
+
 		/*AbstractAnimation aa = new AnimationDirecte();
 		aa.setEcranDeb(ListScreen.Sol());
 		aa.setEcranFin(ListScreen.Decoll());
