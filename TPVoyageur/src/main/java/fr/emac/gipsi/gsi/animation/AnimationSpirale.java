@@ -29,12 +29,12 @@ public class AnimationSpirale extends AbstractAnimation {
 						ecranInt.updateColorByXY(lig, col, ecranFin.getColorByXY(lig,col));
 						this.wait(10);
 					}
-					for(int col=(m-a1-1);col>=a1;col--){ /*lig inf*/
+					for(int col=(m-a1);col>=a1;col--){ /*lig inf*/
 						int lig = n-a1;
 						ecranInt.updateColorByXY(lig, col, ecranFin.getColorByXY(lig,col));
 						this.wait(10);
 					}
-					for(int lig=(n-a1-1);lig>=a1;lig--){ /*col gche*/
+					for(int lig=(n-a1);lig>=a1;lig--){ /*col gche*/
 						int col = a1;
 						ecranInt.updateColorByXY(lig, col, ecranFin.getColorByXY(lig,col));
 						this.wait(10);

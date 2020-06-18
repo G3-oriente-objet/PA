@@ -40,7 +40,11 @@ public class LaunchAnimation {
 		
 		aa.runAnimation();*/
 		
+<<<<<<< HEAD
+		/*AbstractAnimation ab = new AnimationDirecte();
+=======
 		AbstractAnimation ab = new AnimationByColumn();
+>>>>>>> 575ad954b6c95c9fb6c05aebbefa1fd4e018ef05
 		ab.setEcranDeb(ListScreen.Decoll());
 		ab.setEcranFin(ListScreen.Photo());
 		
@@ -396,7 +400,7 @@ public class LaunchAnimation {
 		ch.setEcranDeb(ListScreen.Atterissage1());
 		ch.setEcranFin(ListScreen.Atterissage2());
 		
-		ch.runAnimation();
+		ch.runAnimation(); 
 		
 		/*AbstractAnimation ci = new AnimationDirecte();
 		ci.setEcranDeb(ListScreen.Atterissage2());
