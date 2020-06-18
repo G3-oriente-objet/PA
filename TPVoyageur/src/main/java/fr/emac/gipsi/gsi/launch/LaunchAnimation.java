@@ -30,19 +30,17 @@ public class LaunchAnimation {
 	public static void main(String[] args) {
 
 
-<<<<<<< HEAD
 		AbstractAnimation aa = new AnimationSpirale();
 		aa.setEcranDeb(ListScreen.SolElec());
 		aa.setEcranFin(ListScreen.Plante());
-=======
+
 		/*AbstractAnimation aa = new AnimationDirecte();
 		aa.setEcranDeb(ListScreen.Sol());
 		aa.setEcranFin(ListScreen.Decoll());
->>>>>>> f1e804a37cf7995560a186d8001dccc136f439c6
 		
 		aa.runAnimation();*/
 		
-		AbstractAnimation ab = new AnimationDirecte();
+		/*AbstractAnimation ab = new AnimationDirecte();
 		ab.setEcranDeb(ListScreen.Decoll());
 		ab.setEcranFin(ListScreen.Photo());
 		
@@ -398,7 +396,7 @@ public class LaunchAnimation {
 		ch.setEcranDeb(ListScreen.Atterissage1());
 		ch.setEcranFin(ListScreen.Atterissage2());
 		
-		ch.runAnimation();
+		ch.runAnimation(); 
 		
 		/*AbstractAnimation ci = new AnimationDirecte();
 		ci.setEcranDeb(ListScreen.Atterissage2());

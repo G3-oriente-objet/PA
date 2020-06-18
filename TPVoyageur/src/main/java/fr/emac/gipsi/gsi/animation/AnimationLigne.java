@@ -19,7 +19,7 @@ public class AnimationLigne extends AbstractAnimation {
 				for(int col=0;col<ecranInt.getColMax()+1;col++){
 					ecranInt.updateColorByXY(lig, col, ecranFin.getColorByXY(lig,col));
 				}
-				this.wait(400);
+				this.wait(200);
 				
 			}
 			this.showScreen(ecranInt);
