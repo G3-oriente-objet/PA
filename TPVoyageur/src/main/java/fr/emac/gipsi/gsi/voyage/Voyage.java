@@ -278,14 +278,16 @@ public class Voyage extends AbstractVoyage {
 				}
 			}
 		}
+		
+		listPlaneteVisit.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+    	
+        if (estDans(getSimulatedvoyageur().getAlreadyVisit(),where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0){
+			
+    		getSimulatedvoyageur().getAlreadyVisit().add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+    	}
+        
         while (getSimulatedvoyageur().getAlreadyVisit().size()!=nbPlanAcces(listPlanete)){
     
-        	listPlaneteVisit.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
-        	
-            if (estDans(getSimulatedvoyageur().getAlreadyVisit(),where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0){
-    			
-        		getSimulatedvoyageur().getAlreadyVisit().add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
-        	}
         	
         	if (enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getSimulatedvoyageur().getAlreadyVisit()).isEmpty()) {
         	
@@ -321,7 +323,14 @@ public class Voyage extends AbstractVoyage {
     					}
     				}
     			}
-        	}		
+        	}
+        	
+        	listPlaneteVisit.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        	
+            if (estDans(getSimulatedvoyageur().getAlreadyVisit(),where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0){
+    			
+        		getSimulatedvoyageur().getAlreadyVisit().add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        	}
         }
     }
 }
