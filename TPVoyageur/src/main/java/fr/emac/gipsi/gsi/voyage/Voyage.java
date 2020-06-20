@@ -214,17 +214,6 @@ public class Voyage extends AbstractVoyage {
     	return 0;
     }
     
-    public int estDansListPhoto(ArrayList<Screen> listPhotographie, Planete P) {
-    	if (listPhotographie.isEmpty()){
-    		return 0;
-    	}
-    	for (int i=0;i<listPhotographie.size();i++) {
-    		if (listPhotographie.get(i).equals(P.getImage())) {
-    			return 1;
-    		}
-    	}
-    	return 0;
-    }
     
     public ArrayList<Planete> enleve(ArrayList<Planete> listAccessibilite, ArrayList<Planete> alreadyVisit){
     	ArrayList<Planete> L = new ArrayList<Planete>();
@@ -255,26 +244,30 @@ public class Voyage extends AbstractVoyage {
         // TODO Auto-generated method stub
         afficheEcran();
         ArrayList<Planete> listPlaneteVisit = new ArrayList<Planete>();
-        ArrayList<Screen> listPhotographie = new ArrayList<Screen>();
-        ArrayList<Screen> listEchantillonRoche = new ArrayList<Screen>();
-        ArrayList<Screen> listEchantillonSol = new ArrayList<Screen>();
+        ArrayList<Planete> listPlanetePhoto = new ArrayList<Planete>();
+        ArrayList<Planete> listPlaneteRoche = new ArrayList<Planete>();
+        ArrayList<Planete> listPlaneteSol = new ArrayList<Planete>();
         
-        if (estDansListPhoto(listEchantillonRoche, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        if (estDans(listPlanetePhoto, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
 			getSimulatedvoyageur().takeEchantillonRoche(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+			listPlanetePhoto.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
 		}
 		
-		if (estDansListPhoto(listEchantillonSol, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+		if (estDans(listPlaneteSol, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
 			getSimulatedvoyageur().takeEchantillonSol(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+			listPlaneteSol.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
 		}
 		
-		if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+		if (estDans(listPlaneteRoche, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
 			getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+			listPlaneteRoche.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
 		}
 		
 		if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size()!=0) {
 			for (int i=0; i<where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size(); i++) {
-				if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i)) == 0) {
+				if (estDans(listPlanetePhoto, where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i)) == 0) {
 					getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
+					listPlanetePhoto.add(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
 				}
 			}
 		}
@@ -295,43 +288,56 @@ public class Voyage extends AbstractVoyage {
         		
         			goTo(min(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),listPlaneteVisit, getSimulatedvoyageur().getPosBody()).getPos());
         			
-        			if (estDansListPhoto(listEchantillonRoche, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        			if (estDans(listPlanetePhoto, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
         				getSimulatedvoyageur().takeEchantillonRoche(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        				listPlanetePhoto.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
         			}
         			
-        			if (estDansListPhoto(listEchantillonSol, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        			if (estDans(listPlaneteSol, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
         				getSimulatedvoyageur().takeEchantillonSol(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        				listPlaneteSol.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
         			}
-        			if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        			
+        			if (estDans(listPlaneteRoche, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
         				getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        				listPlaneteRoche.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
         			}
+        			
         			if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size()!=0) {
         				for (int i=0; i<where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size(); i++) {
-        					if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i)) == 0) {
+        					if (estDans(listPlanetePhoto, where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i)) == 0) {
         						getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
+        						listPlanetePhoto.add(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
         					}
         				}
         			}
+        			
             	
         		
         		}
         		else {
         			goTo(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite().get(0).getPos());
         			
-        			if (estDansListPhoto(listEchantillonRoche, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        			if (estDans(listPlanetePhoto, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
         				getSimulatedvoyageur().takeEchantillonRoche(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        				listPlanetePhoto.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
         			}
         			
-        			if (estDansListPhoto(listEchantillonSol, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        			if (estDans(listPlaneteSol, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
         				getSimulatedvoyageur().takeEchantillonSol(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        				listPlaneteSol.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
         			}
-        			if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        			
+        			if (estDans(listPlaneteRoche, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
         				getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        				listPlaneteRoche.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
         			}
+        			
         			if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size()!=0) {
         				for (int i=0; i<where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size(); i++) {
-        					if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i)) == 0) {
+        					if (estDans(listPlanetePhoto, where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i)) == 0) {
         						getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
+        						listPlanetePhoto.add(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
         					}
         				}
         			}
@@ -342,23 +348,29 @@ public class Voyage extends AbstractVoyage {
         	else {
         		goTo(min(enleve(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),getSimulatedvoyageur().getAlreadyVisit()),listPlaneteVisit, getSimulatedvoyageur().getPosBody()).getPos());
         	
-        		if (estDansListPhoto(listEchantillonRoche, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
-    				getSimulatedvoyageur().takeEchantillonRoche(where(listPlanete,getSimulatedvoyageur().getPosBody()));
-    			}
-    			
-    			if (estDansListPhoto(listEchantillonSol, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
-    				getSimulatedvoyageur().takeEchantillonSol(where(listPlanete,getSimulatedvoyageur().getPosBody()));
-    			}
-    			if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
-    				getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()));
-    			}
-    			if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size()!=0) {
-    				for (int i=0; i<where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size(); i++) {
-    					if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i)) == 0) {
-    						getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
-    					}
-    				}
-    			}
+        		if (estDans(listPlanetePhoto, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        			getSimulatedvoyageur().takeEchantillonRoche(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        			listPlanetePhoto.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        		}
+        		
+        		if (estDans(listPlaneteSol, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        			getSimulatedvoyageur().takeEchantillonSol(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        			listPlaneteSol.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        		}
+        		
+        		if (estDans(listPlaneteRoche, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        			getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        			listPlaneteRoche.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        		}
+        		
+        		if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size()!=0) {
+        			for (int i=0; i<where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size(); i++) {
+        				if (estDans(listPlanetePhoto, where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i)) == 0) {
+        					getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
+        					listPlanetePhoto.add(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
+        				}
+        			}
+        		}
         	}
         	
         	listPlaneteVisit.add(where(listPlanete,getSimulatedvoyageur().getPosBody()));

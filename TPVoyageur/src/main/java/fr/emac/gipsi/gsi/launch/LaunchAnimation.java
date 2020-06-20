@@ -30,11 +30,8 @@ public class LaunchAnimation {
 	public static void main(String[] args) {
 
 
-		AbstractAnimation aa = new AnimationSpirale();
-		aa.setEcranDeb(ListScreen.SolElec());
-		aa.setEcranFin(ListScreen.Plante());
 
-		/*AbstractAnimation aa = new AnimationDirecte();
+		/*AbstractAnimation aa = new AnimationSpirale();
 		aa.setEcranDeb(ListScreen.Sol());
 		aa.setEcranFin(ListScreen.Decoll());
 		
@@ -103,7 +100,7 @@ public class LaunchAnimation {
 		
 		ak.runAnimation();
 		
-		/*AbstractAnimation al = new AnimationDirecte();
+		/*AbstractAnimation al = new AnimationSpirale();
 		al.setEcranDeb(ListScreen.Atterissage2());
 		al.setEcranFin(ListScreen.Roche());
 		
@@ -115,7 +112,7 @@ public class LaunchAnimation {
 		
 		am.runAnimation();*/
 		
-		/*AbstractAnimation an = new AnimationDirecte();
+		/*AbstractAnimation an = new AnimationSpirale();
 		an.setEcranDeb(ListScreen.Sol());
 		an.setEcranFin(ListScreen.Decoll());
 		
@@ -163,7 +160,7 @@ public class LaunchAnimation {
 		
 		au.runAnimation();
 		
-		/*AbstractAnimation av = new AnimationDirecte();
+		/*AbstractAnimation av = new AnimationSpirale();
 		av.setEcranDeb(ListScreen.Atterissage2());
 		av.setEcranFin(ListScreen.Roche());
 		
@@ -175,7 +172,7 @@ public class LaunchAnimation {
 		
 		aw.runAnimation();*/
 		
-		/*AbstractAnimation ax = new AnimationDirecte();
+		/*AbstractAnimation ax = new AnimationSpirale();
 		ax.setEcranDeb(ListScreen.Sol());
 		ax.setEcranFin(ListScreen.Decoll());
 		
@@ -254,7 +251,7 @@ public class LaunchAnimation {
 		
 		bj.runAnimation();
 		
-		/*AbstractAnimation bk = new AnimationDirecte();
+		/*AbstractAnimation bk = new AnimationSpirale();
 		bk.setEcranDeb(ListScreen.Atterissage2());
 		bk.setEcranFin(ListScreen.Roche());
 		
@@ -266,7 +263,7 @@ public class LaunchAnimation {
 		
 		bl.runAnimation();*/
 		
-		/*AbstractAnimation bm = new AnimationDirecte();
+		/*AbstractAnimation bm = new AnimationSpirale();
 		bm.setEcranDeb(ListScreen.Sol());
 		bm.setEcranFin(ListScreen.Decoll());
 		
@@ -333,14 +330,14 @@ public class LaunchAnimation {
 		
 		bw.runAnimation();
 		
-		/*AbstractAnimation bx = new AnimationDirecte();
+		/*AbstractAnimation bx = new AnimationSpirale();
 		bx.setEcranDeb(ListScreen.Atterissage2());
 		bx.setEcranFin(ListScreen.Sol());
 		
 		bx.runAnimation();*/
 		
 		
-		/*AbstractAnimation by = new AnimationDirecte();
+		/*AbstractAnimation by = new AnimationSpirale();
 		by.setEcranDeb(ListScreen.Sol());
 		by.setEcranFin(ListScreen.Decoll());
 		
@@ -401,7 +398,7 @@ public class LaunchAnimation {
 		
 		ch.runAnimation(); 
 		
-		/*AbstractAnimation ci = new AnimationDirecte();
+		/*AbstractAnimation ci = new AnimationSpirale();
 		ci.setEcranDeb(ListScreen.Atterissage2());
 		ci.setEcranFin(ListScreen.Sol());
 		
