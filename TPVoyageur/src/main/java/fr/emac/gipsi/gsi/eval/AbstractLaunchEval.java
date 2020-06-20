@@ -30,7 +30,19 @@ public abstract class AbstractLaunchEval {
 		ArrayList<Screen> listOfScreen = new ArrayList<>();
 		listOfScreen.add(ListScreen.Eau());
 		listOfScreen.add(ListScreen.Elec());
-		listOfScreen.add(ListScreen.Eau());
+		listOfScreen.add(ListScreen.Feu());
+		listOfScreen.add(ListScreen.Plante());
+		listOfScreen.add(ListScreen.Psy());
+		listOfScreen.add(ListScreen.Combat());
+		listOfScreen.add(ListScreen.Tenebre());
+		listOfScreen.add(ListScreen.SolElec());
+		listOfScreen.add(ListScreen.Vol1());
+		listOfScreen.add(ListScreen.Vol2());
+		listOfScreen.add(ListScreen.PhotoFlash());
+		listOfScreen.add(ListScreen.Photo());
+		listOfScreen.add(ListScreen.Atterissage1());
+		listOfScreen.add(ListScreen.Atterissage2());
+		listOfScreen.add(ListScreen.Decoll());
 		
 		return listOfScreen;
 	}
@@ -48,7 +60,7 @@ public abstract class AbstractLaunchEval {
 		AbstractVoyageur simulatedVoyageur = createSimulatedVoyageur();
 		
 		int i=0;
-		for(Planete p : listPlanete){
+		/*for(Planete p : listPlanete){
 			p.setImage(listOfScreen.get(i%listOfScreen.size()));
 			i++;
 			if(p.getEchantillonRoche()!=null){
@@ -59,11 +71,11 @@ public abstract class AbstractLaunchEval {
 				p.setEchantillonSol(listOfScreen.get(i%listOfScreen.size()));
 				i++;
 			}			
-		}
-		simulatedVoyageur.getPosTete().setX(listPlanete.get(0).getPos().getX());
-		simulatedVoyageur.getPosTete().setY(listPlanete.get(0).getPos().getY());
-		simulatedVoyageur.getPosBody().setX(listPlanete.get(0).getPos().getX());
-		simulatedVoyageur.getPosBody().setY(listPlanete.get(0).getPos().getY()-1);
+		}*/
+		simulatedVoyageur.getPosTete().setX(listPlanete.get(4).getPos().getX());
+		simulatedVoyageur.getPosTete().setY(listPlanete.get(4).getPos().getY()+1);
+		simulatedVoyageur.getPosBody().setX(listPlanete.get(4).getPos().getX());
+		simulatedVoyageur.getPosBody().setY(listPlanete.get(4).getPos().getY());
 		simulatedVoyageur.setDirection("E");
 		
 		Voyage voyage = new Voyage(listPlanete, simulatedVoyageur);

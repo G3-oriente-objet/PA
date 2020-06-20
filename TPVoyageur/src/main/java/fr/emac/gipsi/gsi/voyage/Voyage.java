@@ -295,11 +295,47 @@ public class Voyage extends AbstractVoyage {
         		
         			goTo(min(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite(),listPlaneteVisit, getSimulatedvoyageur().getPosBody()).getPos());
         			
+        			if (estDansListPhoto(listEchantillonRoche, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        				getSimulatedvoyageur().takeEchantillonRoche(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        			}
+        			
+        			if (estDansListPhoto(listEchantillonSol, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        				getSimulatedvoyageur().takeEchantillonSol(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        			}
+        			if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        				getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        			}
+        			if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size()!=0) {
+        				for (int i=0; i<where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size(); i++) {
+        					if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i)) == 0) {
+        						getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
+        					}
+        				}
+        			}
+            	
         		
         		}
         		else {
         			goTo(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListAccessibilite().get(0).getPos());
         			
+        			if (estDansListPhoto(listEchantillonRoche, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        				getSimulatedvoyageur().takeEchantillonRoche(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        			}
+        			
+        			if (estDansListPhoto(listEchantillonSol, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        				getSimulatedvoyageur().takeEchantillonSol(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        			}
+        			if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody())) == 0) {
+        				getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()));
+        			}
+        			if (where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size()!=0) {
+        				for (int i=0; i<where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().size(); i++) {
+        					if (estDansListPhoto(listPhotographie, where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i)) == 0) {
+        						getSimulatedvoyageur().takePicture(where(listPlanete,getSimulatedvoyageur().getPosBody()).getListVisibilite().get(i));
+        					}
+        				}
+        			}
+            	
         		}
         	}
         

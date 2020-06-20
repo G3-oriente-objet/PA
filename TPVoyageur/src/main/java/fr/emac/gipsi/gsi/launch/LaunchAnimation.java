@@ -40,11 +40,10 @@ public class LaunchAnimation {
 		
 		aa.runAnimation();*/
 		
-<<<<<<< HEAD
-		/*AbstractAnimation ab = new AnimationDirecte();
-=======
+
+
 		AbstractAnimation ab = new AnimationByColumn();
->>>>>>> 575ad954b6c95c9fb6c05aebbefa1fd4e018ef05
+
 		ab.setEcranDeb(ListScreen.Decoll());
 		ab.setEcranFin(ListScreen.Photo());
 		
