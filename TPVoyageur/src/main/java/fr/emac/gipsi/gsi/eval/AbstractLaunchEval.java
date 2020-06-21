@@ -10,9 +10,11 @@ import fr.emac.gipsi.gsi.animation.AnimationAR;
 import fr.emac.gipsi.gsi.animation.AnimationByColumn;
 import fr.emac.gipsi.gsi.animation.AnimationCroix;
 import fr.emac.gipsi.gsi.animation.AnimationDiag;
+import fr.emac.gipsi.gsi.animation.AnimationDirecte;
 import fr.emac.gipsi.gsi.animation.AnimationFlash;
 import fr.emac.gipsi.gsi.animation.AnimationLigne;
 import fr.emac.gipsi.gsi.animation.AnimationPokeball;
+import fr.emac.gipsi.gsi.animation.AnimationSpirale;
 import fr.emac.gipsi.gsi.ecran.ListScreen;
 import fr.emac.gipsi.gsi.screen.Screen;
 import fr.emac.gipsi.gsi.voyage.Planete;
@@ -51,6 +53,8 @@ public abstract class AbstractLaunchEval {
 		listOfScreen.add(ListScreen.Atterissage1());
 		listOfScreen.add(ListScreen.Atterissage2());
 		listOfScreen.add(ListScreen.Decoll());
+		listOfScreen.add(ListScreen.Sol());
+		listOfScreen.add(ListScreen.Roche());
 		
 		return listOfScreen;
 	}
@@ -81,18 +85,18 @@ public abstract class AbstractLaunchEval {
 			}			
 		}
 		simulatedVoyageur.getPosTete().setX(listPlanete.get(4).getPos().getX());
-		simulatedVoyageur.getPosTete().setY(listPlanete.get(4).getPos().getY()+1);
+		simulatedVoyageur.getPosTete().setY(listPlanete.get(4).getPos().getY() + 1);
 		simulatedVoyageur.getPosBody().setX(listPlanete.get(4).getPos().getX());
 		simulatedVoyageur.getPosBody().setY(listPlanete.get(4).getPos().getY());
 		simulatedVoyageur.setDirection("E");
 		
 
 
-		/*AbstractAnimation aa = new AnimationSpirale();
+		AbstractAnimation aa = new AnimationSpirale();
 		aa.setEcranDeb(ListScreen.Sol());
 		aa.setEcranFin(ListScreen.Decoll());
 		
-		aa.runAnimation();*/
+		aa.runAnimation();
 		
 
 
@@ -157,23 +161,23 @@ public abstract class AbstractLaunchEval {
 		
 		ak.runAnimation();
 		
-		/*AbstractAnimation al = new AnimationSpirale();
+		AbstractAnimation al = new AnimationSpirale();
 		al.setEcranDeb(ListScreen.Atterissage2());
 		al.setEcranFin(ListScreen.Roche());
 		
-		al.runAnimation();*/
+		al.runAnimation();
 		
-		/*AbstractAnimation am = new AnimationDirecte();
+		AbstractAnimation am = new AnimationDirecte();
 		am.setEcranDeb(ListScreen.Roche());
 		am.setEcranFin(ListScreen.Sol());
 		
-		am.runAnimation();*/
+		am.runAnimation();
 		
-		/*AbstractAnimation an = new AnimationSpirale();
+		AbstractAnimation an = new AnimationSpirale();
 		an.setEcranDeb(ListScreen.Sol());
 		an.setEcranFin(ListScreen.Decoll());
 		
-		an.runAnimation();*/
+		an.runAnimation();
 		
 		AbstractAnimation ao = new AnimationDiag();
 		ao.setEcranDeb(ListScreen.Decoll());
@@ -217,23 +221,23 @@ public abstract class AbstractLaunchEval {
 		
 		au.runAnimation();
 		
-		/*AbstractAnimation av = new AnimationSpirale();
+		AbstractAnimation av = new AnimationSpirale();
 		av.setEcranDeb(ListScreen.Atterissage2());
 		av.setEcranFin(ListScreen.Roche());
 		
-		av.runAnimation();*/
+		av.runAnimation();
 		
-		/*AbstractAnimation aw = new AnimationDirecte();
+		AbstractAnimation aw = new AnimationDirecte();
 		aw.setEcranDeb(ListScreen.Roche());
 		aw.setEcranFin(ListScreen.Sol());
 		
-		aw.runAnimation();*/
+		aw.runAnimation();
 		
-		/*AbstractAnimation ax = new AnimationSpirale();
+		AbstractAnimation ax = new AnimationSpirale();
 		ax.setEcranDeb(ListScreen.Sol());
 		ax.setEcranFin(ListScreen.Decoll());
 		
-		ax.runAnimation();*/
+		ax.runAnimation();
 		
 		
 		AbstractAnimation ay = new AnimationByColumn();
@@ -308,23 +312,23 @@ public abstract class AbstractLaunchEval {
 		
 		bj.runAnimation();
 		
-		/*AbstractAnimation bk = new AnimationSpirale();
+		AbstractAnimation bk = new AnimationSpirale();
 		bk.setEcranDeb(ListScreen.Atterissage2());
 		bk.setEcranFin(ListScreen.Roche());
 		
-		bk.runAnimation();*/
+		bk.runAnimation();
 		
-		/*AbstractAnimation bl = new AnimationDirecte();
+		AbstractAnimation bl = new AnimationDirecte();
 		bl.setEcranDeb(ListScreen.Roche());
 		bl.setEcranFin(ListScreen.Sol());
 		
-		bl.runAnimation();*/
+		bl.runAnimation();
 		
-		/*AbstractAnimation bm = new AnimationSpirale();
+		AbstractAnimation bm = new AnimationSpirale();
 		bm.setEcranDeb(ListScreen.Sol());
 		bm.setEcranFin(ListScreen.Decoll());
 		
-		bm.runAnimation();*/
+		bm.runAnimation();
 		
 		
 		AbstractAnimation bn = new AnimationByColumn();
@@ -387,18 +391,18 @@ public abstract class AbstractLaunchEval {
 		
 		bw.runAnimation();
 		
-		/*AbstractAnimation bx = new AnimationSpirale();
+		AbstractAnimation bx = new AnimationSpirale();
 		bx.setEcranDeb(ListScreen.Atterissage2());
 		bx.setEcranFin(ListScreen.Sol());
 		
-		bx.runAnimation();*/
+		bx.runAnimation();
 		
 		
-		/*AbstractAnimation by = new AnimationSpirale();
+		AbstractAnimation by = new AnimationSpirale();
 		by.setEcranDeb(ListScreen.Sol());
 		by.setEcranFin(ListScreen.Decoll());
 		
-		by.runAnimation();*/
+		by.runAnimation();
 		
 		
 		AbstractAnimation bz = new AnimationDiag();
@@ -455,19 +459,19 @@ public abstract class AbstractLaunchEval {
 		
 		ch.runAnimation(); 
 		
-		/*AbstractAnimation ci = new AnimationSpirale();
+		AbstractAnimation ci = new AnimationSpirale();
 		ci.setEcranDeb(ListScreen.Atterissage2());
 		ci.setEcranFin(ListScreen.Sol());
 		
-		ci.runAnimation();*/
+		ci.runAnimation();
 		
-		/*AbstractAnimation cj = new AnimationDirecte();
+		AbstractAnimation cj = new AnimationDirecte();
 		cj.setEcranDeb(ListScreen.Sol());
 		cj.setEcranFin(ListScreen.SolElec());
 		
-		cj.runAnimation();*/
+		cj.runAnimation();
 		
-		
+		cj.wait(1000);
 		
 		
 		Voyage voyage = new Voyage(listPlanete, simulatedVoyageur);
